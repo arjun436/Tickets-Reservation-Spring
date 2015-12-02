@@ -59,6 +59,13 @@ public class HomeController {
 
 		return new ModelAndView("hello", "message", message);
 	}
+	
+	@RequestMapping("/a")
+	public ModelAndView a(Locale locale, Model model) {
+
+
+		return new ModelAndView("a");
+	}
 
 	// @RequestMapping("/")
 	// public String home(HttpServletRequest request) {

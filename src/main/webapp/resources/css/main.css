@@ -1,14 +1,83 @@
 @CHARSET "UTF-8";
 
-div.header {
-	color: white;
-	background-image: url('../images/header.jpg');
-	background-size:100% 100%;;
-	background-repeat: no-repeat;
+
+	.pull-left{
+
+	}
+   /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0px;
+      border-radius: 0px;
+      background-color: #d81b60;
+	  font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif;
+	  font-size: 16px;
+      color: #ffffff;
+	  padding-bottom: 0px;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 2000px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 75px;
+      background-color: #ffffff;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #d81b60;
+      color: #ffffff;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+
+/*menu*/
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+color: #fff;
+background-color: #d81b60;
 }
-h1{
-	text-align: right;
+
+.margintop20 {
+    margin-top:20px;
 }
-body {
-    background-color: grey;
+
+.nav-pills>li>a {
+border-radius: 0px;
 }
+
+a {
+color: #000;
+text-decoration: none;
+}
+
+a:hover {
+color: #000;
+text-decoration: none;
+}
+
+
+.nav-stacked>li {
+margin-top: 0px;
+margin-left: 0;
+border-top:3px solid #dadada;
+border-bottom:3px solid #dadada;
+border-left:3px solid #dadada;
+border-right:3px solid #dadada;
+}
+
+.active2 {
+    border-right:4px solid #d81b60;
+}
+    
+    
