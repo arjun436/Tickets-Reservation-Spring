@@ -79,5 +79,25 @@ border-right:3px solid #dadada;
 .active2 {
     border-right:4px solid #d81b60;
 }
+/*szerokosc input*/
+
+.control-group{
+	width: 50%;
+}
+
+
+/*button*/
+.myButton{
+	margin-top:20px;
+	width: 50%;
+}
+    
+    
+    
+    
+    
+    
+    
+    
     
     

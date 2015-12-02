@@ -42,18 +42,11 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-  
-  
-			<ul class="nav nav-pills nav-stacked">
-			  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addplane" /></a></li>
-			  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addtrain" /></a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addplane" /></a></li>
-						  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addplane" /></a></li>
-			
+  			<ul class="nav nav-pills nav-stacked">
+			  <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
+			  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /></a></li>
 			</ul>
-  
-  
-  
+    
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Welcome</h1>

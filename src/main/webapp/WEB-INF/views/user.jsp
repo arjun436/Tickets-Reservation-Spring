@@ -23,8 +23,7 @@
 				<td><form:hidden path="id" />
 			</tr>
 			<tr>
-				<td><form:label path="login">
-						<spring:message code="label.login" />
+				<td><form:label path="login"> <spring:message code="label.login" />
 					</form:label> <form:input path="login" /></td>
 				<td><form:errors path="login" /></td>
 			</tr>
