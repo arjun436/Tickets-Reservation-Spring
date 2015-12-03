@@ -31,9 +31,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"><spring:message code="label.navbar.home" /></a></li>
-        <li><a href="#"><spring:message code="label.navbar.about" /></a></li>
-        <li><a href="#"><spring:message code="label.navbar.contact" /></a></li>
+        <li><a href="http://localhost:8080/myapp/"><spring:message code="label.navbar.home" /></a></li>
+        <li><a href="about.html"><spring:message code="label.navbar.about" /></a></li>
+        <li><a href="contact"><spring:message code="label.navbar.contact" /></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> <spring:message code="label.navbar.login" /></a></li>
@@ -87,6 +87,25 @@
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
 </footer>
+
+
+
+<script>/*
+
+/*menu handler*/
+    $(document).ready(function () {
+        var url = window.location;
+    // Will only work if string in href matches with location
+        $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+
+    // Will also work for relative and absolute hrefs
+        $('ul.nav a').filter(function () {
+            return this.href == url;
+        }).parent().addClass('active').parent().parent().addClass('active');
+    });
+
+</script>
+
 
 </body>
 </html>

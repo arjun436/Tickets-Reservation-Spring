@@ -49,20 +49,33 @@
     
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>TickTwo Welcome!</h1>
-      
-      
-      <div class="container" style="width:75%">
-         
-			  <img src="<c:url value="/resources/images/plane.jpg" />" class="img-thumbnail" align="left" alt="Cinque Terre"> 
-				  <img src="<c:url value="/resources/images/train.jpg" />" class="img-thumbnail" align="right" alt="Cinque Terre"> 
-	
-	</div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
+      <h1>Contact</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>New bookings/General Queries</th>
+        <th>TickTwo Priority Assistance:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>703 303 033 - Polish speaking - 2.08 PLN per minute incl. VAT. TickTwo is the service provider.
+Calls from mobiles and other networks may cost more.</td>
+        <td>703 403 363 - Polish speaking - 2,58 PLN per minute incl. VAT. TickTwo is the service provider.
+Calls from mobiles and other networks may cost more.</td>
+      </tr>
+      <tr>
+        <td>Our lines are open:
+Mon - Fri, 7:00 - 19:00 CET
+Sat, 09:00 - 18:00 CET
+Sun, 10:00 - 18:00 CET</td>
+        <td>Our lines are open:
+Mon - Fri, 7:00 - 19:00 CET
+Sat, 09:00 - 18:00 CET
+Sun, 10:00 - 18:00 CET</td>
+      </tr>
+    </tbody>
+  </table>
       <hr>
 
     </div>

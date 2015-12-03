@@ -17,7 +17,6 @@ import com.mypackage.myapp.domain.PlaneTicket;
 import com.mypackage.myapp.service.PlaneTicketService;
 
 @Controller
-
 @SessionAttributes
 public class PlaneTicketsController {
 

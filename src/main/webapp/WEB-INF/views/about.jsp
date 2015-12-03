@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
@@ -49,20 +51,24 @@
     
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>TickTwo Welcome!</h1>
-      
-      
-      <div class="container" style="width:75%">
-         
-			  <img src="<c:url value="/resources/images/plane.jpg" />" class="img-thumbnail" align="left" alt="Cinque Terre"> 
-				  <img src="<c:url value="/resources/images/train.jpg" />" class="img-thumbnail" align="right" alt="Cinque Terre"> 
-	
-	</div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
+      <h1>About us</h1>
+			<p> TickTwo. You know who we are. You know what we do. You know that when you travel with TickTwo you’ll get where you want to go cheaply, reliably and without any fuss.</p>
+			<p> Our no frills, low cost model revolutionized the air travel industry and opened up Europe to the masses. And we continue to lead the way in great value travel, doing whatever it takes to guarantee that our fares are the lowest out there.</p>
+			<p> But our fares aren’t the only thing that sets us apart. We can also boast the most on-time flights of any airline in Europe, an industry leading 30-year safety record, first class punctuality, near perfect baggage handling and an innovative, cutting edge green policy.</p>
+			<p> Want the cold hard facts? Take a look at the numbers:</p>
+					<ul >			
+						<li><p> 1,600 flights daily</p></li>
+						<li><p> 185 destinations</p></li>
+						<li><p> 300 new Boeing 737-800 in operation</p></li>
+						<li><p> 283 new Boeing 737 on order</p></li>
+						<li><p> 9,500 aviation professionals employed.</p></li>
+						<li><p> 103,000,000 customers this year.</p></li>
+						<li><p> A projected 160,000,000 passengers in 2024</p></li>
+					</ul>
+			<p>But let’s face it, at the end of the day, the only number that really matters is the fare price and one thing’s for certain, TickTwo’s will always be the lowest out there.</p>
+			
+		
+			
       <hr>
 
     </div>
