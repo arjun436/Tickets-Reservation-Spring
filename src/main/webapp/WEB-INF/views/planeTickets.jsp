@@ -82,9 +82,9 @@
 			      <t:input path="flightFrom" label="label.ticket.plane.flightFrom" required="true"/>
 			      <t:input path="flightTo" label="label.ticket.plane.flightTo" required="true"/>
 			      <t:dateinput path="flightDateStart" label="label.ticket.plane.flightDateStart" required="true"/> 
-			      <t:hourinput path="flightHourStart" label="label.ticket.plane.flightHourStart" required="true"/>
+			      <t:hourinput path="flightHourStart" label="label.ticket.plane.flightHourStart" required="true" id="aaa"/>
 			      <t:dateinput path="flightDateStop" label="label.ticket.plane.flightDateStop" required="true"/>			      
-			      <t:hourinput path="flightHourStop" label="label.ticket.plane.flightHourStop" required="true"/>
+			      <t:hourinput path="flightHourStop" label="label.ticket.plane.flightHourStop" required="true" id="bbb"/>
 			      <t:priceinput path="flightPrice" label="label.ticket.plane.flightPrice" required="true"/>
 
 
@@ -165,6 +165,8 @@
         $('ul.nav a').filter(function () {
             return this.href == url;
         }).parent().addClass('active').parent().parent().addClass('active');
+    
+
   
 </script>
 
