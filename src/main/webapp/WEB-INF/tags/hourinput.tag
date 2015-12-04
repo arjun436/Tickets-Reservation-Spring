@@ -13,16 +13,32 @@
     <c:set var="label" value="${fn:toUpperCase(fn:substring(path, 0, 1))}${fn:toLowerCase(fn:substring(path, 1,fn:length(path)))}" />
 </c:if>
 <spring:bind path="${path}">
-    <div class="control-group ${status.error ? 'error' : '' }">
+
+ <!--    <div class="control-group ${status.error ? 'error' : '' }">
         <label class="control-label" for="${path}"><spring:message code = "${label}"/><c:if test="${required}"><span class="required">*</span></c:if></label>
-        <div class="controls" >
-            <form:input path="${path}" cssClass="${empty cssClass ? 'form-control' : cssClass}" />
+			<div  class="input-group input-append date"  >
+
+                
+             <form:input  type="text" path="${path}" class="form-control" name="date" id="dateRangePicker2"/>
+                  <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+             
             <c:if test="${status.error}">
                 <span class="help-inline">${status.errorMessage}</span>
             </c:if>
-        </div>
-    </div>
+            </div>
+    </div>  --> 
     
+     <div class="form-group ${status.error ? 'error' : '' }">
+        <label class="control-label" for="${path}"><spring:message code = "${label}"/><c:if test="${required}"><span class="required">*</span></c:if></label>
+			<div  class="input-group input-append date" id="dateRangePicker2"  >
 
-    
+                
+             <form:input  type="text" path="${path}" class="form-control" name="date" />
+                  <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+             
+            <c:if test="${status.error}">
+                <span class="help-inline">${status.errorMessage}</span>
+            </c:if>
+            </div>
+     </div>
 </spring:bind>

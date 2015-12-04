@@ -8,10 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="<c:url value="/resources/bootstrap-3.3.6-dist/css/bootstrap.min.css" />" rel="stylesheet">
   <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   
   <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap.min.js" />"></script>
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </head>
 <body>
@@ -52,7 +52,7 @@
       <h1>TickTwo Welcome!</h1>
       
       
-      <div class="container" style="width:75%">
+      <div class="container" style="width:90%">
          
 			  <img src="<c:url value="/resources/images/plane.jpg" />" class="img-thumbnail" align="left" alt="Cinque Terre"> 
 				  <img src="<c:url value="/resources/images/train.jpg" />" class="img-thumbnail" align="right" alt="Cinque Terre"> 
