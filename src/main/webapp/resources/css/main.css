@@ -98,8 +98,11 @@ img {
     vertical-align: middle;
     
 }    
-    
-    
+    /*datepicker*/
+#dateRangeForm .form-control-feedback {
+    top: 0;
+    right: -15px;
+} 
     
     
     

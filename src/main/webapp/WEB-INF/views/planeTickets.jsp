@@ -4,37 +4,37 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags/" %>
-<%@taglib prefix="d" tagdir="/WEB-INF/tags/" %>
 
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <link href="<c:url value="/resources/bootstrap-3.3.6-dist/css/bootstrap.min.css" />" rel="stylesheet">
-  <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-  <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap.min.js" />"></script>
-  <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap-datepicker.js" />"></script>
+  <!-- jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> 
+
+<!-- bootstrap -->
+ <link href="<c:url value="/resources/bootstrap-3.3.6-dist/css/bootstrap.min.css" />" rel="stylesheet">
+ <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap.min.js" />"></script>
+ <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap-datepicker.js" />"></script>
   
-  <!-- Include Bootstrap Datepicker -->
+ <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+   
+  <!-- Datepicker -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+  <!-- Clockpicker -->
+  <link href="<c:url value="/resources/clockpicker/dist/bootstrap-clockpicker.min.css" />" rel="stylesheet" type="text/css">
+  <script src="<c:url value="/resources/clockpicker/dist/bootstrap-clockpicker.min.js" />"></script>
+  
 <style type="text/css">
 /**
  * Override feedback icon position
  * See http://formvalidation.io/examples/adjusting-feedback-icon-position/
  */
-#dateRangeForm .form-control-feedback {
-    top: 0;
-    right: -15px;
-}
-#dateRangeForm2 .form-control-feedback {
-    top: 0;
-    right: -15px;
-}
+
+
 </style>
 
 
@@ -81,19 +81,17 @@
 			      <t:input path="flightNumber" label="label.ticket.plane.flightNumber"/>
 			      <t:input path="flightFrom" label="label.ticket.plane.flightFrom"/>
 			      <t:input path="flightTo" label="label.ticket.plane.flightTo"/>
-			      <d:dateinput path="flightDateStart" label="label.ticket.plane.flightDateStart"/> 
-			      <t:input path="flightHourStart" label="label.ticket.plane.flightHourStart"/>
-			      <d:dateinput path="flightDateStop" label="label.ticket.plane.flightDateStop"/>			      
-			      <t:input path="flightHourStop" label="label.ticket.plane.flightHourStop"/>
-			      <t:input path="flightPrice" label="label.ticket.plane.flightPrice"/>
+			      <t:dateinput path="flightDateStart" label="label.ticket.plane.flightDateStart"/> 
+			      <t:hourinput path="flightHourStart" label="label.ticket.plane.flightHourStart"/>
+			      <t:dateinput path="flightDateStop" label="label.ticket.plane.flightDateStop"/>			      
+			      <t:hourinput path="flightHourStop" label="label.ticket.plane.flightHourStop"/>
+			      <t:priceinput path="flightPrice" label="label.ticket.plane.flightPrice"/>
 
 
 			    </fieldset>
 			    <div class="myButton">
 			      <input type="submit" class="btn btn-info btn-block" value="<spring:message code="label.button.submit"/> ">
 			    </div>		    
-			    
-
 
 			</form:form>  
 
@@ -148,7 +146,13 @@
         
     });
 
-
+    $('.clockpicker').clockpicker({
+    	placement: 'top', // clock popover placement
+    	align: 'right',       // popover arrow align
+    	donetext: 'OK',     // done button text
+    	autoclose: false,    // auto close when minute is selected
+    	vibrate: true        // vibrate the device when dragging clock hand
+    	});
 
   
 </script>
