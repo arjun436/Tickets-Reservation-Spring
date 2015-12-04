@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mypackage.myapp.domain.PlaneTicket;
 import com.mypackage.myapp.service.PlaneTicketService;
+import com.mypackage.myapp.validators.PlaneTicketValidator;
 
 @Controller
 @SessionAttributes
@@ -23,6 +24,9 @@ public class PlaneTicketsController {
 	@Autowired
 	PlaneTicketService planeTicketService;
 
+	PlaneTicketValidator planeTicketValidator = new PlaneTicketValidator();
+
+	
 	@RequestMapping("/planeTickets")
 	public String listPlaneTickets(Map<String, Object> map, HttpServletRequest request) {
 
@@ -42,13 +46,21 @@ public class PlaneTicketsController {
 	public String addPlaneTicket(@ModelAttribute("planeTicket") PlaneTicket planeTicket, BindingResult result,
 			HttpServletRequest request, Map<String, Object> map) {// przyjmujemy
 
-		planeTicketService.addPlaneTicket(planeTicket);
+		planeTicketValidator.validate(planeTicket, result);
+		
+		
+		if (result.getErrorCount() == 0) {
+				planeTicketService.addPlaneTicket(planeTicket);
 
-		return "redirect:planeTickets.html";// z tego kontrolera jestesmy
-		// przekierowani na users.html
 
-		// map.put("userList", userService.listUser());
-		// return "user";
+
+			return "redirect:planeTickets.html";// z tego kontrolera jestesmy
+											// przekierowani na users.html
+		}
+		
+		
+
+		return "planeTickets";
 	}
 }
 

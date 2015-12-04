@@ -78,14 +78,14 @@
       
 			<form:form method="post" class="form-horizontal" action="addPlaneTicket.html" commandName="planeTicket">
 			   <fieldset>
-			      <t:input path="flightNumber" label="label.ticket.plane.flightNumber"/>
-			      <t:input path="flightFrom" label="label.ticket.plane.flightFrom"/>
-			      <t:input path="flightTo" label="label.ticket.plane.flightTo"/>
-			      <t:dateinput path="flightDateStart" label="label.ticket.plane.flightDateStart"/> 
-			      <t:hourinput path="flightHourStart" label="label.ticket.plane.flightHourStart"/>
-			      <t:dateinput path="flightDateStop" label="label.ticket.plane.flightDateStop"/>			      
-			      <t:hourinput path="flightHourStop" label="label.ticket.plane.flightHourStop"/>
-			      <t:priceinput path="flightPrice" label="label.ticket.plane.flightPrice"/>
+			      <t:input path="flightNumber" label="label.ticket.plane.flightNumber" required="true"/>
+			      <t:input path="flightFrom" label="label.ticket.plane.flightFrom" required="true"/>
+			      <t:input path="flightTo" label="label.ticket.plane.flightTo" required="true"/>
+			      <t:dateinput path="flightDateStart" label="label.ticket.plane.flightDateStart" required="true"/> 
+			      <t:hourinput path="flightHourStart" label="label.ticket.plane.flightHourStart" required="true"/>
+			      <t:dateinput path="flightDateStop" label="label.ticket.plane.flightDateStop" required="true"/>			      
+			      <t:hourinput path="flightHourStop" label="label.ticket.plane.flightHourStop" required="true"/>
+			      <t:priceinput path="flightPrice" label="label.ticket.plane.flightPrice" required="true"/>
 
 
 			    </fieldset>
@@ -123,6 +123,10 @@
         $('ul.nav a').filter(function () {
             return this.href == url;
         }).parent().addClass('active').parent().parent().addClass('active');
+    //walek
+    	if(url == "http://localhost:8080/myapp/addPlaneTicket.html"){
+    		$('ul.nav a[href="planeTickets.html"]').parent().addClass('active');
+    	}
     });
 
 
@@ -153,7 +157,14 @@
     	autoclose: false,    // auto close when minute is selected
     	vibrate: true        // vibrate the device when dragging clock hand
     	});
+    var url = window.location;
+    // Will only work if string in href matches with location
+        $('ul.nav a[href="' + url + '"]').parent().addClass('active');
 
+    // Will also work for relative and absolute hrefs
+        $('ul.nav a').filter(function () {
+            return this.href == url;
+        }).parent().addClass('active').parent().parent().addClass('active');
   
 </script>
 

@@ -16,12 +16,14 @@
     <div class="control-group ${status.error ? 'error' : '' }">
         <label class="control-label" for="${path}"><spring:message code = "${label}"/><c:if test="${required}"><span class="required">*</span></c:if></label>
         <div class="input-group input-append" >
-            <form:input path="${path}" cssClass="${empty cssClass ? 'form-control' : cssClass}" />
+            <form:input type="text" path="${path}" cssClass="${empty cssClass ? 'form-control' : cssClass}" />
 				 <span class="input-group-addon"><spring:message code="label.ticket.plane.flightPrice.currency"/><span class="glyphicon"></span></span>            
+
+        </div>
+        
             <c:if test="${status.error}">
                 <span class="help-inline">${status.errorMessage}</span>
             </c:if>
-        </div>
     </div>
     
     

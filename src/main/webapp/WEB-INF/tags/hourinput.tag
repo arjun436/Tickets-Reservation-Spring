@@ -36,10 +36,12 @@
              <form:input  type="text" path="${path}" class="form-control" name="clock" />
                   <span class="input-group-addon "><span class="glyphicon glyphicon-time"></span></span>
              
+
+            </div>
+            
             <c:if test="${status.error}">
                 <span class="help-inline">${status.errorMessage}</span>
             </c:if>
-            </div>
      </div>
      
      
