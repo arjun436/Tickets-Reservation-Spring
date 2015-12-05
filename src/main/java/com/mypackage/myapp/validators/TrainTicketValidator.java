@@ -5,6 +5,7 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.mypackage.myapp.domain.PlaneTicket;
+import com.mypackage.myapp.domain.TrainTicket;
 
 public class TrainTicketValidator implements Validator {
 	
@@ -19,7 +20,7 @@ public class TrainTicketValidator implements Validator {
 		// TODO Auto-generated method stub
 	}
 
-	public void validate(PlaneTicket planeTicket, Errors errors) {
+	public void validate(TrainTicket TrainTicket, Errors errors) {
 		
 		// czy pola sa puste
 		ValidationUtils.rejectIfEmpty(errors, "transitNumber", "error.field.required");

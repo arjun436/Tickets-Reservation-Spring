@@ -59,35 +59,49 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
   			<ul class="nav nav-pills nav-stacked">
-			 <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
-			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /></a></li>
-			 <li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
+			  <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addplane" /></a></li>
+			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addtrain" /></a></li>
+			<li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
 			<li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
+			
 			</ul>
     
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Define new plane ticket</h1>
+      <h1>List of plane Tickets</h1>
       
-			<form:form method="post" class="form-horizontal" action="addPlaneTicket.html" commandName="planeTicket">
-			   <fieldset>
-			 	  <form:hidden path="id" />
-			      <t:input path="flightNumber" label="label.ticket.plane.flightNumber" required="true"/>
-			      <t:input path="flightFrom" label="label.ticket.plane.flightFrom" required="true"/>
-			      <t:input path="flightTo" label="label.ticket.plane.flightTo" required="true"/>
-			      <t:dateinput path="flightDateStart" label="label.ticket.plane.flightDateStart" required="true"/> 
-			      <t:hourinput path="flightHourStart" label="label.ticket.plane.flightHourStart" required="true" id="aaa"/>
-			      <t:dateinput path="flightDateStop" label="label.ticket.plane.flightDateStop" required="true"/>			      
-			      <t:hourinput path="flightHourStop" label="label.ticket.plane.flightHourStop" required="true" id="bbb"/>
-			      <t:priceinput path="flightPrice" label="label.ticket.plane.flightPrice" required="true"/>
+		 <table class="table table-bordered">
+		    <thead>
+		      <tr>
+		        <th><spring:message code="label.ticket.plane.flightNumber"/></th>
+		        <th><spring:message code="label.ticket.plane.flightFrom"/></th>
+		        <th><spring:message code="label.ticket.plane.flightTo"/></th>
+		        <th><spring:message code="label.ticket.plane.flightDateStart"/></th>
+		        <th><spring:message code="label.ticket.plane.flightHourStart"/></th>
+		        <th><spring:message code="label.ticket.plane.flightDateStop"/></th>
+		        <th><spring:message code="label.ticket.plane.flightHourStop"/></th>
+		        <th><spring:message code="label.ticket.plane.flightPrice"/> <spring:message code="label.ticket.plane.flightPrice.currency"/></th>
+		      </tr>
+			</thead>
 
-
-			    </fieldset>
-			    <div class="myButton">
-			      <input type="submit" class="btn btn-info btn-block" value="<spring:message code="label.button.submit"/> ">
-			    </div>		    
-
-			</form:form>  
+			    			    <tbody>
+			<c:forEach items="${planeTicketList}" var="planeTicket">
+				<tr>
+					<td>${planeTicket.flightNumber}</td>
+					<td>${planeTicket.flightFrom}</td>
+					<td>${planeTicket.flightTo}</td>
+					<td>${planeTicket.flightDateStart}</td>
+					<td>${planeTicket.flightHourStart}</td>
+					<td>${planeTicket.flightDateStop}</td>
+					<td>${planeTicket.flightHourStop}</td>
+					<td>${planeTicket.flightPrice}</td>
+									 
+					<td> <a href="delete/${planeTicket.id}.html" class="btn btn-info" role="button">DELETE</a></td>
+					
+				</tr>
+			</c:forEach>
+			    </tbody>
+ 		 </table>
 
 
     </div>

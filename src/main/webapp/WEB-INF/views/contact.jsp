@@ -43,8 +43,10 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
   			<ul class="nav nav-pills nav-stacked">
-			  <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
-			  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /></a></li>
+			 <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
+			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /></a></li>
+			 <li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
+			<li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
 			</ul>
     
     </div>
@@ -86,7 +88,7 @@ Sun, 10:00 - 18:00 CET</td>
 </div>
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <p><spring:message code="footer" /></p>
 </footer>
 
 
