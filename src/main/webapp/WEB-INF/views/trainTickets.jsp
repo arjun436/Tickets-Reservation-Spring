@@ -29,6 +29,8 @@
   <script src="<c:url value="/resources/clockpicker/dist/bootstrap-clockpicker.min.js" />"></script>
   
 
+
+
 </head>
 <body>
 
@@ -65,19 +67,21 @@
     
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Define new plane ticket</h1>
+      <h1>Define new train ticket</h1>
       
-			<form:form method="post" class="form-horizontal" action="addPlaneTicket.html" commandName="planeTicket">
+			<form:form method="post" class="form-horizontal" action="addTrainTicket.html" commandName="trainTicket">
 			   <fieldset>
-			 	  <form:hidden path="id" />
-			      <t:input path="flightNumber" label="label.ticket.plane.flightNumber" required="true"/>
-			      <t:input path="flightFrom" label="label.ticket.plane.flightFrom" required="true"/>
-			      <t:input path="flightTo" label="label.ticket.plane.flightTo" required="true"/>
-			      <t:dateinput path="flightDateStart" label="label.ticket.plane.flightDateStart" required="true"/> 
-			      <t:hourinput path="flightHourStart" label="label.ticket.plane.flightHourStart" required="true" id="aaa"/>
-			      <t:dateinput path="flightDateStop" label="label.ticket.plane.flightDateStop" required="true"/>			      
-			      <t:hourinput path="flightHourStop" label="label.ticket.plane.flightHourStop" required="true" id="bbb"/>
-			      <t:priceinput path="flightPrice" label="label.ticket.plane.flightPrice" required="true"/>
+			      <form:hidden path="id" />
+			   
+			      <t:input path="transitNumber" label="label.ticket.train.transitNumber" required="true"/>
+				  <t:input path="transitName" label="label.ticket.train.transitName" required="true"/>			      
+			      <t:input path="transitFrom" label="label.ticket.train.transitFrom" required="true"/>
+			      <t:input path="transitTo" label="label.ticket.train.transitTo" required="true"/>
+			      <t:dateinput path="transitDateStart" label="label.ticket.train.transitDateStart" required="true"/> 
+			      <t:hourinput path="transitHourStart" label="label.ticket.train.transitHourStart" required="true"/>
+			      <t:dateinput path="transitDateStop" label="label.ticket.train.transitDateStop" required="true"/>			      
+			      <t:hourinput path="transitHourStop" label="label.ticket.train.transitHourStop" required="true"/>
+			      <t:priceinput path="transitPrice" label="label.ticket.train.transitPrice" required="true"/>
 
 
 			    </fieldset>
@@ -114,8 +118,8 @@
             return this.href == url;
         }).parent().addClass('active').parent().parent().addClass('active');
     //walek
-    	if(url == "http://localhost:8080/myapp/addPlaneTicket.html"){
-    		$('ul.nav a[href="planeTickets.html"]').parent().addClass('active');
+    	if(url == "http://localhost:8080/myapp/addTrainTicket.html"){
+    		$('ul.nav a[href="trainTickets.html"]').parent().addClass('active');
     	}
     });
 

@@ -9,7 +9,7 @@
 <%@attribute name="cssClass" required="false" type="java.lang.String"%>
 <%@attribute name="label" required="false" type="java.lang.String"%>
 <%@attribute name="required" required="false" type="java.lang.Boolean"%>
-<%@attribute name="id" required="true" type="java.lang.String"%>
+<%@attribute name="id" required="false" type="java.lang.String"%>
 
 <c:if test="${empty label}">
     <c:set var="label" value="${fn:toUpperCase(fn:substring(path, 0, 1))}${fn:toLowerCase(fn:substring(path, 1,fn:length(path)))}" />
