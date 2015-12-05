@@ -67,7 +67,7 @@
 			</ul>
     
     </div>
-    <div class="col-sm-8 text-left"> 
+    <div class="col-sm-9 text-left"> 
       <h1>List of train Tickets</h1>
       
 		 <table class="table table-bordered">
@@ -82,6 +82,8 @@
 		        <th><spring:message code="label.ticket.train.transitDateStop"/></th>
 		        <th><spring:message code="label.ticket.train.transitHourStop"/>
 		        <th><spring:message code="label.ticket.train.transitPrice"/> <spring:message code="label.ticket.plane.flightPrice.currency"/></th>
+		        <th><spring:message code="label.ticket.actions"/></th>
+		        
 		      </tr>
 			</thead>
 			    <tbody>
@@ -96,6 +98,10 @@
 					<td>${trainTicket.transitDateStop}</td>
 					<td>${trainTicket.transitHourStop}</td>
 					<td>${trainTicket.transitPrice}</td>
+					
+					<td> <a href="deleteTrainTicket/${trainTicket.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a>
+					<a href="trainTickets.html?trainTicketId=${trainTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>
+					
 					
 				</tr>
 			</c:forEach>

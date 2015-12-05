@@ -31,7 +31,7 @@ public class PlaneTicketsController {
 	public String listPlaneTickets(Map<String, Object> map, HttpServletRequest request) {
 
 		int planeTicketId = ServletRequestUtils.getIntParameter(request, "planeTicketId", -1);
-
+		System.out.println(planeTicketId);
 		if (planeTicketId > 0)
 			map.put("planeTicket", planeTicketService.getPlaneTicket(planeTicketId));
 		else
@@ -50,11 +50,15 @@ public class PlaneTicketsController {
 		
 		
 		if (result.getErrorCount() == 0) {
-				planeTicketService.addPlaneTicket(planeTicket);
+				
+				if (planeTicket.getId() == 0)
+					planeTicketService.addPlaneTicket(planeTicket);
+				else
+					planeTicketService.editPlaneTicket(planeTicket);
 
 
 
-			return "redirect:planeTickets.html";// z tego kontrolera jestesmy
+			return "redirect:planeTicketsList.html";// z tego kontrolera jestesmy
 											// przekierowani na users.html
 		}
 		

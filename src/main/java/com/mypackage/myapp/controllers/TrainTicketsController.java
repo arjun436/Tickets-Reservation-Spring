@@ -50,11 +50,13 @@ public class TrainTicketsController {
 		
 		
 		if (result.getErrorCount() == 0) {
+			if (trainTicket.getId() == 0)
 				trainTicketService.addTrainTicket(trainTicket);
+			else
+				trainTicketService.editTrainTicket(trainTicket);
 
 
-
-			return "redirect:trainTickets.html";// z tego kontrolera jestesmy
+			return "redirect:trainTicketsList.html";// z tego kontrolera jestesmy
 											// przekierowani na users.html
 		}
 		

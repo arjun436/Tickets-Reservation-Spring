@@ -67,7 +67,7 @@
 			</ul>
     
     </div>
-    <div class="col-sm-8 text-left"> 
+    <div class="col-sm-9 text-left"> 
       <h1>List of plane Tickets</h1>
       
 		 <table class="table table-bordered">
@@ -81,12 +81,15 @@
 		        <th><spring:message code="label.ticket.plane.flightDateStop"/></th>
 		        <th><spring:message code="label.ticket.plane.flightHourStop"/></th>
 		        <th><spring:message code="label.ticket.plane.flightPrice"/> <spring:message code="label.ticket.plane.flightPrice.currency"/></th>
+		        <th><spring:message code="label.ticket.actions"/></th>
+		        
 		      </tr>
 			</thead>
 
 			    			    <tbody>
 			<c:forEach items="${planeTicketList}" var="planeTicket">
 				<tr>
+					
 					<td>${planeTicket.flightNumber}</td>
 					<td>${planeTicket.flightFrom}</td>
 					<td>${planeTicket.flightTo}</td>
@@ -95,10 +98,13 @@
 					<td>${planeTicket.flightDateStop}</td>
 					<td>${planeTicket.flightHourStop}</td>
 					<td>${planeTicket.flightPrice}</td>
-									 
-					<td> <a href="delete/${planeTicket.id}.html" class="btn btn-info" role="button">DELETE</a></td>
 					
-				</tr>
+									 
+					<td> <a href="delete/${planeTicket.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a>	
+					<a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>
+					
+
+
 			</c:forEach>
 			    </tbody>
  		 </table>

@@ -71,7 +71,7 @@
       
 			<form:form method="post" class="form-horizontal" action="addPlaneTicket.html" commandName="planeTicket">
 			   <fieldset>
-			 	  <form:hidden path="id" />
+			 	  <form:hidden path="id"/>
 			      <t:input path="flightNumber" label="label.ticket.plane.flightNumber" required="true"/>
 			      <t:input path="flightFrom" label="label.ticket.plane.flightFrom" required="true"/>
 			      <t:input path="flightTo" label="label.ticket.plane.flightTo" required="true"/>
