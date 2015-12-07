@@ -63,6 +63,7 @@
 			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addtrain" /></a></li>
 			<li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
 			<li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
+						<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
 			
 			</ul>
     
@@ -100,7 +101,7 @@
 					<td>${planeTicket.flightPrice}</td>
 					
 									 
-					<td> <a href="delete/${planeTicket.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a>	
+					<td> <a href="deletePlaneTicket/${planeTicket.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a>	
 					<a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>
 					
 

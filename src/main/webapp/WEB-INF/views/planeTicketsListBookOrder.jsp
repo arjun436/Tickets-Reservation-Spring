@@ -59,29 +59,30 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
   			<ul class="nav nav-pills nav-stacked">
-			 <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
-			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /></a></li>
-			 <li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
+			  <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addplane" /></a></li>
+			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addtrain" /></a></li>
+			<li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
 			<li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
-						<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
+			<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
 			
 			</ul>
     
     </div>
-    <div class="col-sm-8 text-left"> 
-      <h1>Define new plane ticket</h1>
+    <div class="col-sm-9 text-left"> 
+      <h1>Book plane Tickets - order form</h1>
       
-			<form:form method="post" class="form-horizontal" action="addPlaneTicket.html" commandName="planeTicket">
+		 	<form:form method="post" class="form-horizontal" action="addPlaneTicketOrder.html" commandName="planeTicketOrder">
 			   <fieldset>
 			 	  <form:hidden path="id"/>
-			      <t:input path="flightNumber" label="label.ticket.plane.flightNumber" required="true"/>
-			      <t:input path="flightFrom" label="label.ticket.plane.flightFrom" required="true"/>
-			      <t:input path="flightTo" label="label.ticket.plane.flightTo" required="true"/>
-			      <t:dateinput path="flightDateStart" label="label.ticket.plane.flightDateStart" required="true"/> 
-			      <t:hourinput path="flightHourStart" label="label.ticket.plane.flightHourStart" required="true" id="aaa"/>
-			      <t:dateinput path="flightDateStop" label="label.ticket.plane.flightDateStop" required="true"/>			      
-			      <t:hourinput path="flightHourStop" label="label.ticket.plane.flightHourStop" required="true" id="bbb"/>
-			      <t:priceinput path="flightPrice" label="label.ticket.plane.flightPrice" required="true"/>
+			      <t:input path="firstname" label="label.ticket.plane.order.firstname" required="true"/>
+			      <t:input path="secondname" label="label.ticket.plane.order.secondname" required="false"/>
+			      <t:input path="lastname" label="label.ticket.plane.order.lastname" required="true"/>
+			      <t:input path="state" label="label.ticket.plane.order.state" required="true"/>
+			      <t:input path="city" label="label.ticket.plane.order.city" required="true"/>
+			      <t:input path="street" label="label.ticket.plane.order.street" required="true"/>
+			      <t:input path="email" label="label.ticket.plane.order.email" required="true"/>
+			      <t:input path="telephone" label="label.ticket.plane.order.telephone" required="true"/>
+
 
 
 			    </fieldset>
@@ -90,7 +91,9 @@
 			    </div>		    
 
 			</form:form>  
-
+		
+		      <h4></h4>
+		
 
     </div>
     <div class="col-sm-2 sidenav">
@@ -167,6 +170,17 @@
         }).parent().addClass('active').parent().parent().addClass('active');
     
 
+    
+    
+    
+        $('form').submit(function (e) {
+            var form = this;
+            e.preventDefault();
+            setTimeout(function () {
+                form.submit();
+            }, 3000); // in milliseconds
+            $("<p>Thank you! Order completed! Please check your email.</p>").appendTo("h4");
+        });
   
 </script>
 
