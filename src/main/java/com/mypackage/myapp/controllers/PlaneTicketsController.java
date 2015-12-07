@@ -42,7 +42,7 @@ public class PlaneTicketsController {
 		return "planeTickets";
 	}
 
-	@RequestMapping(value = "/addPlaneTicket", method = { RequestMethod.POST, RequestMethod.GET }) // po
+	@RequestMapping(value = "/addPlaneTicket", method = ( RequestMethod.POST)) // po
 	public String addPlaneTicket(@ModelAttribute("planeTicket") PlaneTicket planeTicket, BindingResult result,
 			HttpServletRequest request, Map<String, Object> map) {// przyjmujemy
 

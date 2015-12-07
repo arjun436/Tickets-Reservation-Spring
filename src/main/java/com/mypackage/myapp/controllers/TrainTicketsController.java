@@ -42,7 +42,7 @@ public class TrainTicketsController {
 		return "trainTickets";
 	}
 
-	@RequestMapping(value = "/addTrainTicket", method = { RequestMethod.POST, RequestMethod.GET }) // po
+	@RequestMapping(value = "/addTrainTicket", method = (RequestMethod.POST)) // po
 	public String addTrainTicket(@ModelAttribute("trainTicket") TrainTicket trainTicket, BindingResult result,
 			HttpServletRequest request, Map<String, Object> map) {// przyjmujemy
 

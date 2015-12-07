@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.mypackage.myapp.domain.PlaneTicket;
 import com.mypackage.myapp.domain.PlaneTicketOrder;
 import com.mypackage.myapp.service.PlaneTicketOrderService;
 
@@ -43,7 +42,7 @@ public class PlaneTicketsBookOrderController {
 		return "planeTicketsListBookOrder";
 	}
 	
-	@RequestMapping(value = "/addPlaneTicketOrder", method = { RequestMethod.POST, RequestMethod.GET }) // po
+	@RequestMapping(value = "/addPlaneTicketOrder", method = (RequestMethod.POST)) // po
 	public String addPlaneTicketOrder(@ModelAttribute("planeTicketOrder") PlaneTicketOrder planeTicketOrder, BindingResult result,
 			HttpServletRequest request, Map<String, Object> map) {// przyjmujemy
 

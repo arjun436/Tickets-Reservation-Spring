@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mypackage.myapp.domain.PlaneTicket;
@@ -36,7 +37,7 @@ public class TrainTicketsListController {
 
 		return "trainTicketsList";
 	}
-	@RequestMapping("/deleteTrainTicket/{trainTicketId}")
+	@RequestMapping(value = "/deleteTrainTicket/{trainTicketId}", method = ( RequestMethod.POST))
 	public String deletePlaneTicket(@PathVariable("trainTicketId") Integer trainTicketId) {
 		trainTicketService.removeTrainTicket(trainTicketId);
 
