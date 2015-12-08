@@ -15,56 +15,44 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mypackage.myapp.domain.PlaneTicketOrder;
 import com.mypackage.myapp.service.PlaneTicketOrderService;
+import com.mypackage.myapp.service.PlaneTicketService;
 
 @Controller
 @SessionAttributes
 public class PlaneTicketsBookOrderController {
 
-	
-	
-	
-	
+	@Autowired
+	PlaneTicketService planeTicketService;
+
 	@Autowired
 	PlaneTicketOrderService planeTicketOrderService;
-	
+
 	@RequestMapping("/planeTicketsListBookOrder")
 	public String listPlaneTicketsBookOrder(Map<String, Object> map, HttpServletRequest request) {
 
-		int planeTicketOrderId = ServletRequestUtils.getIntParameter(request, "planeTicketOrderId", -1);
+		Integer planeTicketId = ServletRequestUtils.getIntParameter(request, "planeTicketId", -1);
 
-		if (planeTicketOrderId > 0)
-			map.put("planeTicketOrder", planeTicketOrderService.getPlaneTicketOrder(planeTicketOrderId));
-		else
-			map.put("planeTicketOrder", new PlaneTicketOrder());
+		PlaneTicketOrder planeTicketOrder = new PlaneTicketOrder();
+		planeTicketOrder.setPlaneTicketId(planeTicketId.toString());
+		;
+
+		map.put("planeTicketOrder", planeTicketOrder);
 
 		map.put("planeTicketOrderList", planeTicketOrderService.listPlaneTicketOrder());
 
 		return "planeTicketsListBookOrder";
 	}
-	
+
 	@RequestMapping(value = "/addPlaneTicketOrder", method = (RequestMethod.POST)) // po
-	public String addPlaneTicketOrder(@ModelAttribute("planeTicketOrder") PlaneTicketOrder planeTicketOrder, BindingResult result,
-			HttpServletRequest request, Map<String, Object> map) {// przyjmujemy
+	public String addPlaneTicketOrder(@ModelAttribute("planeTicketOrder") PlaneTicketOrder planeTicketOrder,
+			BindingResult result, HttpServletRequest request, Map<String, Object> map) {// przyjmujemy
 
-//		planeTicketOrderValidator.validate(planeTicketOrder, result);
-		
-		
-//		if (result.getErrorCount() == 0) {
-				
-//				if (planeTicket.getId() == 0)
-					planeTicketOrderService.addPlaneTicketOrder(planeTicketOrder);
-//				else
-//					planeTicketService.editPlaneTicket(planeTicket);
+		Integer planeTicketId = Integer.parseInt(planeTicketOrder.getPlaneTicketId());
+		planeTicketOrder.setPlaneTicket(planeTicketService.getPlaneTicket(planeTicketId));
+		planeTicketOrderService.addPlaneTicketOrder(planeTicketOrder);
 
+		return "redirect:http://localhost:8080/myapp/";
 
-
-			return "redirect:http://localhost:8080/myapp/";// z tego kontrolera jestesmy
-											// przekierowani na users.html
-//		}
-//		
-//		
-//
-//		return "planeTicketsListBookOrder";
 	}
-	
+
 }

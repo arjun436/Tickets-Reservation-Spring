@@ -74,7 +74,9 @@
 		 	<form:form method="post" class="form-horizontal" action="addPlaneTicketOrder.html" commandName="planeTicketOrder">
 			   <fieldset>
 			 	  <form:hidden path="id"/>
-			      <t:input path="firstname" label="label.ticket.plane.order.firstname" required="true"/>
+			 	  <form:hidden path="planeTicketId"/>
+			 	  
+			      <t:input path="firstname" label="label.ticket.plane.order.firstname" required="true" />
 			      <t:input path="secondname" label="label.ticket.plane.order.secondname" required="false"/>
 			      <t:input path="lastname" label="label.ticket.plane.order.lastname" required="true"/>
 			      <t:input path="state" label="label.ticket.plane.order.state" required="true"/>

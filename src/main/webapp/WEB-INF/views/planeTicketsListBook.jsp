@@ -101,7 +101,7 @@
 					<td>${planeTicket.flightPrice}</td>
 					
 									 
-					<td><a href="planeTicketsListBookOrder.html" class="btn btn-info btn-xs" role="button">BOOK</a></td>
+					<td><a href="planeTicketsListBookOrder.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">BOOK</a></td>
 	
 
 			</c:forEach>
