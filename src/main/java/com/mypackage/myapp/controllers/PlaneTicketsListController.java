@@ -37,7 +37,7 @@ public class PlaneTicketsListController {
 
 		return "planeTicketsList";
 	}
-	@RequestMapping(value = "/deletePlaneTicket/{planeTicketId}", method = ( RequestMethod.POST))
+	@RequestMapping(value = "/deletePlaneTicket/{planeTicketId}", method = ( RequestMethod.GET))
 	public String deletePlaneTicket(@PathVariable("planeTicketId") Integer planeTicketId) {
 		planeTicketService.removePlaneTicket(planeTicketId);
 

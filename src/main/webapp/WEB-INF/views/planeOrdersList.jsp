@@ -63,8 +63,8 @@
 			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addtrain" /></a></li>
 			<li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
 			<li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
-						<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
-						<li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
+			<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
+			<li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
 			
 			</ul>
     
@@ -75,35 +75,38 @@
 		 <table class="table table-bordered">
 		    <thead>
 		      <tr>
-		        <th><spring:message code="label.ticket.plane.flightNumber"/></th>
-		        <th><spring:message code="label.ticket.plane.flightFrom"/></th>
-		        <th><spring:message code="label.ticket.plane.flightTo"/></th>
-		        <th><spring:message code="label.ticket.plane.flightDateStart"/></th>
-		        <th><spring:message code="label.ticket.plane.flightHourStart"/></th>
-		        <th><spring:message code="label.ticket.plane.flightDateStop"/></th>
-		        <th><spring:message code="label.ticket.plane.flightHourStop"/></th>
-		        <th><spring:message code="label.ticket.plane.flightPrice"/> <spring:message code="label.ticket.plane.flightPrice.currency"/></th>
+		        <th><spring:message code="label.ticket.plane.order.firstname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.secondname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.lastname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.state"/></th>
+		        <th><spring:message code="label.ticket.plane.order.city"/></th>
+		        <th><spring:message code="label.ticket.plane.order.street"/></th>
+		        <th><spring:message code="label.ticket.plane.order.email"/></th>
+		        <th><spring:message code="label.ticket.plane.order.telephone"/>
+		        <th><spring:message code="label.ticket.plane.flightNumber"/></th>		        
 		        <th><spring:message code="label.ticket.actions"/></th>
+		        
 		        
 		      </tr>
 			</thead>
 
 			    			    <tbody>
-			<c:forEach items="${planeTicketList}" var="planeTicket">
+			<c:forEach items="${planeOrderList}" var="planeTicketOrder">
 				<tr>
 					
-					<td>${planeTicket.flightNumber}</td>
-					<td>${planeTicket.flightFrom}</td>
-					<td>${planeTicket.flightTo}</td>
-					<td>${planeTicket.flightDateStart}</td>
-					<td>${planeTicket.flightHourStart}</td>
-					<td>${planeTicket.flightDateStop}</td>
-					<td>${planeTicket.flightHourStop}</td>
-					<td>${planeTicket.flightPrice}</td>
+					<td>${planeTicketOrder.firstname}</td>
+					<td>${planeTicketOrder.secondname}</td>
+					<td>${planeTicketOrder.lastname}</td>
+					<td>${planeTicketOrder.state}</td>
+					<td>${planeTicketOrder.city}</td>
+					<td>${planeTicketOrder.street}</td>
+					<td>${planeTicketOrder.email}</td>
+					<td>${planeTicketOrder.telephone}</td>
+					<td>${planeTicketOrder.planeTicket.flightNumber}</td>
 					
 									 
-					<td> <a href="deletePlaneTicket/${planeTicket.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a>	
-					<a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>
+			<td> <a href="deletePlaneOrder/${planeTicketOrder.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a> </td>
+				<!--<a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>  -->		
 					
 
 
