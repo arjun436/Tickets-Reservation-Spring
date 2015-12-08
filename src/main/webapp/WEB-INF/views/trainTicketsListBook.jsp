@@ -59,11 +59,11 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
   			<ul class="nav nav-pills nav-stacked">
-			  <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addplane" /></a></li>
-			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addtrain" /></a></li>
-			<li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
+			  <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
+			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /></a></li>
+			 <li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
 			<li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
-			<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
+					<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
 						<li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
 												<li><a href="trainTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
 												<li><a href="trainOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
@@ -77,34 +77,36 @@
 		 <table class="table table-bordered">
 		    <thead>
 		      <tr>
-		        <th><spring:message code="label.ticket.plane.flightNumber"/></th>
-		        <th><spring:message code="label.ticket.plane.flightFrom"/></th>
-		        <th><spring:message code="label.ticket.plane.flightTo"/></th>
-		        <th><spring:message code="label.ticket.plane.flightDateStart"/></th>
-		        <th><spring:message code="label.ticket.plane.flightHourStart"/></th>
-		        <th><spring:message code="label.ticket.plane.flightDateStop"/></th>
-		        <th><spring:message code="label.ticket.plane.flightHourStop"/></th>
-		        <th><spring:message code="label.ticket.plane.flightPrice"/> <spring:message code="label.ticket.plane.flightPrice.currency"/></th>
+		        <th><spring:message code="label.ticket.train.transitNumber"/></th>
+		        <th><spring:message code="label.ticket.train.transitName"/></th>
+		        <th><spring:message code="label.ticket.train.transitFrom"/></th>
+		        <th><spring:message code="label.ticket.train.transitTo"/></th>
+		        <th><spring:message code="label.ticket.train.transitDateStart"/></th>
+		        <th><spring:message code="label.ticket.train.transitHourStart"/></th>
+		        <th><spring:message code="label.ticket.train.transitDateStop"/></th>
+		        <th><spring:message code="label.ticket.train.transitHourStop"/></th>
+		        <th><spring:message code="label.ticket.train.transitPrice"/> <spring:message code="label.ticket.plane.flightPrice.currency"/></th>
 		        <th><spring:message code="label.ticket.actions"/></th>
 		        
 		      </tr>
 			</thead>
 
 			    			    <tbody>
-			<c:forEach items="${planeTicketList}" var="planeTicket">
+			<c:forEach items="${trainTicketList}" var="trainTicket">
 				<tr>
 					
-					<td>${planeTicket.flightNumber}</td>
-					<td>${planeTicket.flightFrom}</td>
-					<td>${planeTicket.flightTo}</td>
-					<td>${planeTicket.flightDateStart}</td>
-					<td>${planeTicket.flightHourStart}</td>
-					<td>${planeTicket.flightDateStop}</td>
-					<td>${planeTicket.flightHourStop}</td>
-					<td>${planeTicket.flightPrice}</td>
+					<td>${trainTicket.transitNumber}</td>
+					<td>${trainTicket.transitName}</td>
+					<td>${trainTicket.transitFrom}</td>
+					<td>${trainTicket.transitTo}</td>
+					<td>${trainTicket.transitDateStart}</td>
+					<td>${trainTicket.transitHourStart}</td>
+					<td>${trainTicket.transitDateStop}</td>
+					<td>${trainTicket.transitHourStop}</td>
+					<td>${trainTicket.transitPrice}</td>
 					
 									 
-					<td><a href="planeTicketsListBookOrder.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">BOOK</a></td>
+					<td><a href="trainTicketsListBookOrder.html?trainTicketId=${trainTicket.id}" class="btn btn-info btn-xs" role="button">BOOK</a></td>
 	
 
 			</c:forEach>

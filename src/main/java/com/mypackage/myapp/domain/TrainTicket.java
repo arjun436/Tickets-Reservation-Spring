@@ -1,9 +1,12 @@
 package com.mypackage.myapp.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -26,6 +29,9 @@ public class TrainTicket {
 	private String transitDateStop;
 	private String transitHourStop;
 	private String transitPrice;
+	
+	@OneToMany(mappedBy = "trainTicket")
+	private List<TrainTicketOrder> trainTicketOrder;
 	
 	public int getId() {
 		return id;
@@ -86,6 +92,12 @@ public class TrainTicket {
 	}
 	public void setTransitPrice(String transitPrice) {
 		this.transitPrice = transitPrice;
+	}
+	public List<TrainTicketOrder> getTrainTicketOrder() {
+		return trainTicketOrder;
+	}
+	public void setTrainTicketOrder(List<TrainTicketOrder> trainTicketOrder) {
+		this.trainTicketOrder = trainTicketOrder;
 	}
 
 }

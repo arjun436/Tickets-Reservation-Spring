@@ -72,45 +72,33 @@
     
     </div>
     <div class="col-sm-9 text-left"> 
-      <h1>Book plane Tickets</h1>
+      <h1>Book plane Tickets - order form</h1>
       
-		 <table class="table table-bordered">
-		    <thead>
-		      <tr>
-		        <th><spring:message code="label.ticket.plane.flightNumber"/></th>
-		        <th><spring:message code="label.ticket.plane.flightFrom"/></th>
-		        <th><spring:message code="label.ticket.plane.flightTo"/></th>
-		        <th><spring:message code="label.ticket.plane.flightDateStart"/></th>
-		        <th><spring:message code="label.ticket.plane.flightHourStart"/></th>
-		        <th><spring:message code="label.ticket.plane.flightDateStop"/></th>
-		        <th><spring:message code="label.ticket.plane.flightHourStop"/></th>
-		        <th><spring:message code="label.ticket.plane.flightPrice"/> <spring:message code="label.ticket.plane.flightPrice.currency"/></th>
-		        <th><spring:message code="label.ticket.actions"/></th>
-		        
-		      </tr>
-			</thead>
+		 	<form:form method="post" class="form-horizontal" action="addTrainTicketOrder.html" commandName="trainTicketOrder">
+			   <fieldset>
+			 	  <form:hidden path="id"/>
+			 	  <form:hidden path="trainTicketId"/>
+			 	  
+			      <t:input path="firstname" label="label.ticket.plane.order.firstname" required="true" />
+			      <t:input path="secondname" label="label.ticket.plane.order.secondname" required="false"/>
+			      <t:input path="lastname" label="label.ticket.plane.order.lastname" required="true"/>
+			      <t:input path="state" label="label.ticket.plane.order.state" required="true"/>
+			      <t:input path="city" label="label.ticket.plane.order.city" required="true"/>
+			      <t:input path="street" label="label.ticket.plane.order.street" required="true"/>
+			      <t:input path="email" label="label.ticket.plane.order.email" required="true"/>
+			      <t:input path="telephone" label="label.ticket.plane.order.telephone" required="true"/>
 
-			    			    <tbody>
-			<c:forEach items="${planeTicketList}" var="planeTicket">
-				<tr>
-					
-					<td>${planeTicket.flightNumber}</td>
-					<td>${planeTicket.flightFrom}</td>
-					<td>${planeTicket.flightTo}</td>
-					<td>${planeTicket.flightDateStart}</td>
-					<td>${planeTicket.flightHourStart}</td>
-					<td>${planeTicket.flightDateStop}</td>
-					<td>${planeTicket.flightHourStop}</td>
-					<td>${planeTicket.flightPrice}</td>
-					
-									 
-					<td><a href="planeTicketsListBookOrder.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">BOOK</a></td>
-	
 
-			</c:forEach>
-			    </tbody>
- 		 </table>
 
+			    </fieldset>
+			    <div class="myButton">
+			      <input type="submit" class="btn btn-info btn-block" value="<spring:message code="label.button.submit"/> ">
+			    </div>		    
+
+			</form:form>  
+		
+		      <h4></h4>
+		
 
     </div>
     <div class="col-sm-2 sidenav">
@@ -187,6 +175,17 @@
         }).parent().addClass('active').parent().parent().addClass('active');
     
 
+    
+    
+    
+        $('form').submit(function (e) {
+            var form = this;
+            e.preventDefault();
+            setTimeout(function () {
+                form.submit();
+            }, 3000); // in milliseconds
+            $("<p>Thank you! Order completed! Please check your email.</p>").appendTo("h4");
+        });
   
 </script>
 
