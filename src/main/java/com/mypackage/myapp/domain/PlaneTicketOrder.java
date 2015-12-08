@@ -6,9 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name = "planeTicketOrder")
@@ -30,7 +30,8 @@ public class PlaneTicketOrder {
 	private String email;
 	private String telephone;
 	
-
+	@ManyToOne
+	private PlaneTicket planeTicket;
 	
 	public int getId() {
 		return id;
@@ -85,6 +86,12 @@ public class PlaneTicketOrder {
 	}
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+	public PlaneTicket getPlaneTicket() {
+		return planeTicket;
+	}
+	public void setPlaneTicket(PlaneTicket planeTicket) {
+		this.planeTicket = planeTicket;
 	}
 
 }
