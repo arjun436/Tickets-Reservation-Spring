@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html lang="en">
@@ -15,7 +16,6 @@
   <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap.min.js" />"></script>
   
   <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-  
 
 </head>
 <body>
@@ -82,11 +82,13 @@
 					 <li><a href="trainOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
 			</ul>
 			 &nbsp;
+			 <sec:authorize access="hasRole('ROLE_ADMIN')">
 			<ul class="nav nav-pills nav-stacked">					 
 					 <li><a href="userRole.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.userRole" /></a></li>
 			         <li><a href="user.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.user" /></a></li>
     		</ul>
     		&nbsp;		
+    		</sec:authorize>
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>TickTwo Welcome!</h1>

@@ -190,7 +190,7 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>3.2.3.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -217,8 +217,16 @@
 			<version>3.2.3.RELEASE</version>
 		</dependency>
 		<!-- END SPRING SECURITY -->
+		
+		<!--  SPRING EXPRESSIONS -->
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>3.2.3.RELEASE</version>
+		</dependency>
 
+		<!-- END SPRING EXPRESSIONS -->
 
 	</dependencies>
 	<build>
