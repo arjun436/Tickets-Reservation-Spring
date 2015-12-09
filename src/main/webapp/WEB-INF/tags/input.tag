@@ -5,7 +5,10 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<%@attribute name="path" required="true" type="java.lang.String"%>
+<%@attribute name="type" required="false" type="java.lang.String"%>
+
+<%@attribute name="name" required="false" type="java.lang.String"%>
+<%@attribute name="path" required="false" type="java.lang.String"%>
 <%@attribute name="cssClass" required="false" type="java.lang.String"%>
 <%@attribute name="label" required="false" type="java.lang.String"%>
 <%@attribute name="required" required="false" type="java.lang.Boolean"%>

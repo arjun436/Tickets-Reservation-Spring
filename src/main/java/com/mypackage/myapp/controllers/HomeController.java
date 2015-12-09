@@ -36,6 +36,8 @@ public class HomeController {
 
 	    return contact;
 	}
+	
+
 //	@RequestMapping(value = "/", method = RequestMethod.GET)
 //	public String home(Locale locale, Model model) {
 //

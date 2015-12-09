@@ -50,8 +50,11 @@ public class UserDAOImpl implements UserDAO {
 		users = sessionFactory.getCurrentSession().createQuery("from User where login=?").setParameter(0, login).list();
 
 		if (users.size() > 0) {
+			System.out.println("gg");
+
 			return users.get(0);
 		} else {
+
 			return null;
 		}
 	}

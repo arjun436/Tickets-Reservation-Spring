@@ -35,7 +35,6 @@ public class User {
 	
 	private String login;
 	private String password;
-	private Boolean enabled;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	private Set<UserRole> userRole = new HashSet<UserRole>(0);
@@ -56,13 +55,7 @@ public class User {
 		this.password = password;
 	}
 
-	public Boolean getEnabled() {
-		return enabled;
-	}
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
 
 	public Set<UserRole> getUserRole() {
 		return userRole;

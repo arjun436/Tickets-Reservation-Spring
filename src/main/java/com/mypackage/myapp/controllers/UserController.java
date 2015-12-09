@@ -29,7 +29,7 @@ public class UserController {
 
 //	UserValidator userValidator = new UserValidator();
 
-	@RequestMapping("/users")
+	@RequestMapping("/user")
 	public String listUsers(Map<String, Object> map, HttpServletRequest request) {
 
 		int userId = ServletRequestUtils.getIntParameter(request, "userId", -1);
@@ -48,7 +48,7 @@ public class UserController {
 	// wcisnieciu
 	// add
 	// dodane RequestMethod.GET by internacjonalizacja dzialala
-	public String addContact(@ModelAttribute("user") User user, BindingResult result, HttpServletRequest request,
+	public String addUser(@ModelAttribute("user") User user, BindingResult result, HttpServletRequest request,
 			Map<String, Object> map) {// przyjmujemy
 		// uzytkownika
 //		userValidator.validate(user, result);
@@ -63,7 +63,7 @@ public class UserController {
 				userService.editUser(user);
 
 
-			return "redirect:users.html";// z tego kontrolera jestesmy
+			return "redirect:home.html";// z tego kontrolera jestesmy
 											// przekierowani na users.html
 		}
 
