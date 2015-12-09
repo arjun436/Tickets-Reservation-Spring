@@ -169,6 +169,8 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>  
       		  <input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" /> 
+			<c:if test="${error != null }"></c:if>	<h4>${error}</h4>
+			
     </form>
 
   </div>

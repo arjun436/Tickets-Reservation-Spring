@@ -35,7 +35,7 @@ public class UserController {
 //	UserValidator userValidator = new UserValidator();
 
 	@RequestMapping("/user")
-	public String listUsers(Map<String, Object> map, HttpServletRequest request) {
+	public String user(Map<String, Object> map, HttpServletRequest request) {
 
 		int userId = ServletRequestUtils.getIntParameter(request, "userId", -1);
 
@@ -47,6 +47,21 @@ public class UserController {
 		map.put("userList", userService.listUser());
 
 		return "user";
+	}
+	
+	@RequestMapping("/usersList")
+	public String listOfUsers(Map<String, Object> map, HttpServletRequest request) {
+
+//		int userId = ServletRequestUtils.getIntParameter(request, "userId", -1);
+//
+//		if (userId > 0)
+//			map.put("user", userService.getUser(userId));
+//		else
+//			map.put("user", new User());
+
+		map.put("usersList", userService.listUser());
+
+		return "usersList";
 	}
 
 	@RequestMapping(value = "/addUser", method = { RequestMethod.POST, RequestMethod.GET }) // po
@@ -96,11 +111,11 @@ public class UserController {
 		return "user";
 	}
 
-	@RequestMapping("/delete/{userId}")
+	@RequestMapping("/deleteUser/{userId}")
 	public String deleteUser(@PathVariable("userId") Integer userId) {
 		userService.removeUser(userId);
 
-		return "redirect:/users.html";
+		return "redirect:/usersList.html";
 	}
 
 

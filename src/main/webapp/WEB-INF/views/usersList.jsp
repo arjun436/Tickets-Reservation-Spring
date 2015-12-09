@@ -99,28 +99,53 @@
     		</ul>
     		&nbsp;		
     </div>
-    <div class="col-sm-8 text-left"> 
-      <h1>Define new plane ticket</h1>
+    <div class="col-sm-9 text-left "> 
+      <h1>List of users</h1>
       
-			<form:form method="post" class="form-horizontal" action="addPlaneTicket.html" commandName="planeTicket">
-			   <fieldset>
-			 	  <form:hidden path="id"/>
-			      <t:input path="flightNumber" label="label.ticket.plane.flightNumber" required="true"/>
-			      <t:input path="flightFrom" label="label.ticket.plane.flightFrom" required="true"/>
-			      <t:input path="flightTo" label="label.ticket.plane.flightTo" required="true"/>
-			      <t:dateinput path="flightDateStart" label="label.ticket.plane.flightDateStart" required="true"/> 
-			      <t:hourinput path="flightHourStart" label="label.ticket.plane.flightHourStart" required="true" id="aaa"/>
-			      <t:dateinput path="flightDateStop" label="label.ticket.plane.flightDateStop" required="true"/>			      
-			      <t:hourinput path="flightHourStop" label="label.ticket.plane.flightHourStop" required="true" id="bbb"/>
-			      <t:priceinput path="flightPrice" label="label.ticket.plane.flightPrice" required="true"/>
+		 <table class="table table-bordered">
+		    <thead>
+		      <tr>
+		        <th><spring:message code="label.user.login"/></th>
+		        <th><spring:message code="label.user.role"/></th>
+		        <th><spring:message code="label.user.firstname"/></th>
+		        <th><spring:message code="label.user.secondname"/></th>
+		        <th><spring:message code="label.user.lastname"/></th>
+		        <th><spring:message code="label.user.state"/></th>
+		        <th><spring:message code="label.user.city"/></th>
+		        <th><spring:message code="label.user.street"/>
+		        <th><spring:message code="label.user.email"/></th>
+		        <th><spring:message code="label.user.telephone"/></th>
+		        
+		      </tr>
+			</thead>
+
+			    			    <tbody>
+			<c:forEach items="${usersList}" var="user">
+				<tr>
+					
+					<td>${user.login}</td>
+					
+					<td> <c:forEach items="${user.userRole}" var="userrole">${userrole.role} </c:forEach></td>
+					
+					
+					<td>${user.firstname}</td>
+					<td>${user.secondname}</td>
+					<td>${user.lastname}</td>
+					<td>${user.state}</td>
+					<td>${user.city}</td>
+					<td>${user.street}</td>
+					<td>${user.email}</td>
+					<td>${user.telephone}</td>
+					
+									 
+					<td> <a href="deleteUser/${user.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a>	</td>
+				<!--   <a href="user.html?userId=${user.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>-->	
+					
 
 
-			    </fieldset>
-			    <div class="myButton">
-			      <input type="submit" class="btn btn-info btn-block" value="<spring:message code="label.button.submit"/> ">
-			    </div>		    
-
-			</form:form>  
+			</c:forEach>
+			    </tbody>
+ 		 </table>
 
 
     </div>
@@ -164,8 +189,7 @@
                 format: 'mm/dd/yyyy',
                 startDate: d,
                 endDate: '12/30/2020',
-                autoclose: true,
-                language: 'de-DE'
+                autoclose: true
             })
             .on('changeDate', function(e) {
                 $(".date").datepicker('hide');

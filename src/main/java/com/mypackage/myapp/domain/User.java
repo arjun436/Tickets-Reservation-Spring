@@ -36,7 +36,7 @@ public class User {
 	private String login;
 	private String password;
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<UserRole> userRole = new HashSet<UserRole>(0);
 
 	public String getLogin() {
