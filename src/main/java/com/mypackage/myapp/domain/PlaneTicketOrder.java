@@ -29,7 +29,6 @@ public class PlaneTicketOrder {
 	private String street;
 	private String email;
 	private String telephone;
-	private String planeTicketId;
 	
 	@ManyToOne
 	private PlaneTicket planeTicket;
@@ -94,11 +93,6 @@ public class PlaneTicketOrder {
 	public void setPlaneTicket(PlaneTicket planeTicket) {
 		this.planeTicket = planeTicket;
 	}
-	public String getPlaneTicketId() {
-		return planeTicketId;
-	}
-	public void setPlaneTicketId(String planeTicketId) {
-		this.planeTicketId = planeTicketId;
-	}
+
 
 }

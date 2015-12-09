@@ -24,7 +24,6 @@ public class TrainTicketOrder {
 	private String street;
 	private String email;
 	private String telephone;
-	private String trainTicketId;
 
 	@ManyToOne
 	private TrainTicket trainTicket;
@@ -99,14 +98,6 @@ public class TrainTicketOrder {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
-	}
-
-	public String getTrainTicketId() {
-		return trainTicketId;
-	}
-
-	public void setTrainTicketId(String trainTicketId) {
-		this.trainTicketId = trainTicketId;
 	}
 
 	public TrainTicket getTrainTicket() {

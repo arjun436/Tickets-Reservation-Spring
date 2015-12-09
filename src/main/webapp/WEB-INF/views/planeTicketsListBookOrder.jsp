@@ -65,7 +65,7 @@
 			<li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
 			<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
 						<li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
-												<li><a href="trainTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
+												<li><a href="trainTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsListBook" /></a></li>
 												<li><a href="trainOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
 			
 			</ul>
@@ -77,7 +77,6 @@
 		 	<form:form method="post" class="form-horizontal" action="addPlaneTicketOrder.html" commandName="planeTicketOrder">
 			   <fieldset>
 			 	  <form:hidden path="id"/>
-			 	  <form:hidden path="planeTicketId"/>
 			 	  
 			      <t:input path="firstname" label="label.ticket.plane.order.firstname" required="true" />
 			      <t:input path="secondname" label="label.ticket.plane.order.secondname" required="false"/>
