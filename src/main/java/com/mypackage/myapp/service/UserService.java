@@ -20,6 +20,7 @@ public interface UserService {
 
 	public User getUser(int id);
 
+	
 	public String hashPassword(String password);
 
 	public void addUserRole(UserRole userRole);

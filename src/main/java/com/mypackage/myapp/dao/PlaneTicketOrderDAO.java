@@ -9,7 +9,7 @@ public interface PlaneTicketOrderDAO {
 	public void addPlaneTicketOrder(PlaneTicketOrder planeTicketOrder);
 
 	public List<PlaneTicketOrder> listPlaneTicketOrder();
-
+	
 	public void removePlaneTicketOrder(int id);
 
 	public PlaneTicketOrder getPlaneTicketOrder(int id);

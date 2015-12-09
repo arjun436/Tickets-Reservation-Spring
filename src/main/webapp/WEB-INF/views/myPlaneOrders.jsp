@@ -1,21 +1,33 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags/" %>
+
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- jquery -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> 
+  <!-- jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> 
+
+<!-- bootstrap -->
+ <link href="<c:url value="/resources/bootstrap-3.3.6-dist/css/bootstrap.min.css" />" rel="stylesheet">
+ <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap.min.js" />"></script>
+ <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap-datepicker.js" />"></script>
   
-  <!-- bootstrap -->
-  <link href="<c:url value="/resources/bootstrap-3.3.6-dist/css/bootstrap.min.css" />" rel="stylesheet">  
-  <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap.min.js" />"></script>
+ <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+   
+  <!-- Datepicker -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+  <!-- Clockpicker -->
+  <link href="<c:url value="/resources/clockpicker/dist/bootstrap-clockpicker.min.css" />" rel="stylesheet" type="text/css">
+  <script src="<c:url value="/resources/clockpicker/dist/bootstrap-clockpicker.min.js" />"></script>
   
-  <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
 </head>
 <body>
@@ -32,7 +44,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="http://localhost:8080/myapp/"><spring:message code="label.navbar.home" /></a></li>
+        <li><a href="home.html"><spring:message code="label.navbar.home" /></a></li>
         <li><a href="about.html"><spring:message code="label.navbar.about" /></a></li>
         <li><a href="contact.html"><spring:message code="label.navbar.contact" /></a></li>
       </ul>
@@ -54,7 +66,6 @@
 			name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
 		</form>
-      
     </div>
   </div>
 </nav>
@@ -62,28 +73,21 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-    	  	<sec:authorize access="hasRole('ROLE_ADMIN')">
-    
   			<ul class="nav nav-pills nav-stacked">
 					 <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
 					 <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /> </a></li>
 			</ul>
 		    &nbsp;
-		    
 		    <ul class="nav nav-pills nav-stacked">			   			
 					 <li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
 					  <li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
 			</ul>
 			&nbsp;
-		 	</sec:authorize>
-			
 			<ul class="nav nav-pills nav-stacked">					 
 					 <li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
 				     <li><a href="trainTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsListBook" /></a></li>
 			</ul>
 			&nbsp;
-			 <sec:authorize access="hasRole('ROLE_ADMIN')">
-			
 			<ul class="nav nav-pills nav-stacked">		
 					 <li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
 					 <li><a href="trainOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
@@ -94,42 +98,56 @@
 			         <li><a href="user.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.user" /></a></li>
     		</ul>
     		&nbsp;		
-    					<ul class="nav nav-pills nav-stacked">					 
-    		
-    					        
-    					         <li><a href="usersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.usersList" /></a></li>
-    		    		</ul>
-    		    		</sec:authorize>
-    		        					<ul class="nav nav-pills nav-stacked">					 
-    		
-    					        
-    		    		    					         <li><a href="myPlaneOrders.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.myPlaneOrders" /></a></li>
-    		    		</ul>
-    		    
-    		    		
-    		
     </div>
-    <div class="col-sm-8 text-left"> 
-      <h1>TickTwo Welcome!</h1>
+    <div class="col-sm-9 text-left"> 
+      <h1>List of my booked plane Tickets</h1>
       
-      
-      <div class="container" style="width:90%">
-         
-			  <img src="<c:url value="/resources/images/plane.jpg" />" class="img-thumbnail" align="left" alt="Cinque Terre"> 
-				  <img src="<c:url value="/resources/images/train.jpg" />" class="img-thumbnail" align="right" alt="Cinque Terre"> 
-	
-	</div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		 <table class="table table-bordered">
+		    <thead>
+		      <tr>
+		        <th><spring:message code="label.ticket.plane.order.firstname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.secondname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.lastname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.state"/></th>
+		        <th><spring:message code="label.ticket.plane.order.city"/></th>
+		        <th><spring:message code="label.ticket.plane.order.street"/></th>
+		        <th><spring:message code="label.ticket.plane.order.email"/></th>
+		        <th><spring:message code="label.ticket.plane.order.telephone"/>
+		        <th><spring:message code="label.ticket.plane.flightNumber"/></th>		        
+		        <th><spring:message code="label.ticket.actions"/></th>
+		        
+		        
+		      </tr>
+			</thead>
 
-      <hr>
+			    			    <tbody>
+			<c:forEach items="${planeOrderList}" var="planeTicketOrder">
+				<tr>
+					
+					<td>${planeTicketOrder.firstname}</td>
+					<td>${planeTicketOrder.secondname}</td>
+					<td>${planeTicketOrder.lastname}</td>
+					<td>${planeTicketOrder.state}</td>
+					<td>${planeTicketOrder.city}</td>
+					<td>${planeTicketOrder.street}</td>
+					<td>${planeTicketOrder.email}</td>
+					<td>${planeTicketOrder.telephone}</td>
+					<td>${planeTicketOrder.planeTicket.flightNumber}</td>
+					
+									 
+			<td> <a href="deletePlaneOrder/${planeTicketOrder.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a> </td>  
+			<!-- <a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>   -->	
+					
+
+
+			</c:forEach>
+			    </tbody>
+ 		 </table>
+
 
     </div>
     <div class="col-sm-2 sidenav">
 
-		
     </div>
   </div>
 </div>
@@ -137,6 +155,7 @@
 <footer class="container-fluid text-center">
   <p><spring:message code="footer" /></p>
 </footer>
+
 
 
 <script>/*
@@ -151,13 +170,62 @@
         $('ul.nav a').filter(function () {
             return this.href == url;
         }).parent().addClass('active').parent().parent().addClass('active');
+    //walek
+    	if(url == "http://localhost:8080/myapp/addPlaneTicket.html"){
+    		$('ul.nav a[href="planeTickets.html"]').parent().addClass('active');
+    	}
     });
 
-//login logout
+
+    $(document).ready(function() {
+    	
+    	var d = new Date();//from today
+    	
+       $(".date")
+            .datepicker({
+                format: 'mm/dd/yyyy',
+                startDate: d,
+                endDate: '12/30/2020',
+                autoclose: true
+            })
+            .on('changeDate', function(e) {
+                $(".date").datepicker('hide');
+            }); 
+
+
+        
+        
+    });
+  /*/
+    var clocktype;
+    if(locLang == "en"){
+    	clocktype = true;
+    } else clocktype = false;*/
+    $('.clockpicker').clockpicker({
+    	placement: 'top', // clock popover placement
+    	align: 'right',       // popover arrow align
+    	donetext: 'OK',     // done button text
+    	autoclose: false,    // auto close when minute is selected
+        twelvehour: false        // vibrate the device when dragging clock hand
+
+
+    	});
+    var url = window.location;
+    // Will only work if string in href matches with location
+        $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+
+    // Will also work for relative and absolute hrefs
+        $('ul.nav a').filter(function () {
+            return this.href == url;
+        }).parent().addClass('active').parent().parent().addClass('active');
+    
+      //login logout
 		function formSubmit() {
 			document.getElementById("logoutForm").submit();
 		}
+  
 </script>
+
 
 </body>
 </html>

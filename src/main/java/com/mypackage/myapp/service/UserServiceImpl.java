@@ -76,4 +76,6 @@ public class UserServiceImpl implements UserService {
 	public UserRole getUserRole(int id) {
 		return userDAO.getUserRole(id);
 	}
+
+
 }

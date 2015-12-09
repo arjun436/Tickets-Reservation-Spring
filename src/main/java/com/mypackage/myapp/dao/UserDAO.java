@@ -15,6 +15,7 @@ public interface UserDAO {
 
 	public User getUser(int id);
 
+
 	public void editUser(User user);
 
 	public User findByLogin(String login);

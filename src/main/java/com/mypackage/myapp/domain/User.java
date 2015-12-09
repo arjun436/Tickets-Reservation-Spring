@@ -32,12 +32,17 @@ public class User {
 	private String city;
 	private String street;
 
-	
 	private String login;
 	private String password;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<UserRole> userRole = new HashSet<UserRole>(0);
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	private Set<PlaneTicket> userPlaneTicket = new HashSet<PlaneTicket>(0);
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	private Set<TrainTicket> userTrainTicket = new HashSet<TrainTicket>(0);
 
 	public String getLogin() {
 		return login;
@@ -55,8 +60,6 @@ public class User {
 		this.password = password;
 	}
 
-
-
 	public Set<UserRole> getUserRole() {
 		return userRole;
 	}
@@ -64,8 +67,6 @@ public class User {
 	public void setUserRole(Set<UserRole> userRole) {
 		this.userRole = userRole;
 	}
-
-
 
 	public String getFirstname() {
 		return firstname;
@@ -138,5 +139,21 @@ public class User {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-	
+
+	public Set<PlaneTicket> getUserPlaneTicket() {
+		return userPlaneTicket;
+	}
+
+	public void setUserPlaneTicket(Set<PlaneTicket> userPlaneTicket) {
+		this.userPlaneTicket = userPlaneTicket;
+	}
+
+	public Set<TrainTicket> getUserTrainTicket() {
+		return userTrainTicket;
+	}
+
+	public void setUserTrainTicket(Set<TrainTicket> userTrainTicket) {
+		this.userTrainTicket = userTrainTicket;
+	}
+
 }

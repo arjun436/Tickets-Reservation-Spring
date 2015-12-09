@@ -91,7 +91,6 @@ public class UserController {
 	      if (authorities != null) {
 	          for (Iterator it = authorities.iterator(); it.hasNext();) {
 	            Object candidate = it.next();
-	           System.out.println(candidate.toString()); 
 	            if (candidate.toString().equals("ROLE_ADMIN")) {
 	            	userService.addUserAdmin(user);//ADMIN DODAJE Z UPRAWNIENIAMI ADMINA I USERA
 	            }

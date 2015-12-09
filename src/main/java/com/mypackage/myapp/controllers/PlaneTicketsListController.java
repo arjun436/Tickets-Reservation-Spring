@@ -26,12 +26,12 @@ public class PlaneTicketsListController {
 	@RequestMapping("/planeTicketsList")
 	public String listPlaneTickets(Map<String, Object> map, HttpServletRequest request) {
 
-		int planeTicketId = ServletRequestUtils.getIntParameter(request, "planeTicketId", -1);
-
-		if (planeTicketId > 0)
-			map.put("planeTicket", planeTicketService.getPlaneTicket(planeTicketId));
-		else
-			map.put("planeTicket", new PlaneTicket());
+//		int planeTicketId = ServletRequestUtils.getIntParameter(request, "planeTicketId", -1);
+//
+//		if (planeTicketId > 0)
+//			map.put("planeTicket", planeTicketService.getPlaneTicket(planeTicketId));
+//		else
+//			map.put("planeTicket", new PlaneTicket());
 
 		map.put("planeTicketList", planeTicketService.listPlaneTicket());
 
@@ -43,4 +43,6 @@ public class PlaneTicketsListController {
 
 		return "redirect:/planeTicketsList.html";
 	}
+	
+	
 }
