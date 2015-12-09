@@ -19,8 +19,16 @@ public class UserServiceImpl implements UserService {
 	UserDAO userDAO;
 
 	@Transactional
-	public void addUser(User user) {
+	public void addUserAdmin(User user) {
+		user.getUserRole().add(userDAO.findRoleByName("ROLE_USER"));
 		user.getUserRole().add(userDAO.findRoleByName("ROLE_ADMIN"));
+		user.setPassword(hashPassword(user.getPassword()));
+		userDAO.addUser(user);
+	}
+	
+	@Transactional
+	public void addUser(User user) {
+		user.getUserRole().add(userDAO.findRoleByName("ROLE_USER"));
 		user.setPassword(hashPassword(user.getPassword()));
 		userDAO.addUser(user);
 	}

@@ -54,7 +54,7 @@
       
       	<c:if test="${pageContext.request.userPrincipal.name == null}">
         <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> <spring:message code="label.navbar.login" /></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> <spring:message code="label.navbar.singup" /></a></li>
+        <li><a href="user.html"><span class="glyphicon glyphicon-user"></span> <spring:message code="label.navbar.singup" /></a></li>
         
       	</c:if>
       	<c:if test="${pageContext.request.userPrincipal.name != null}">
@@ -99,7 +99,7 @@
     		</ul>
     		&nbsp;		
     </div>
-    <div class="col-sm-8 text-left"> 
+    <div class="col-sm-9 text-left"> 
       <h1>List of train Tickets</h1>
       
 		 <table class="table table-bordered">

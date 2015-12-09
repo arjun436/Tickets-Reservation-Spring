@@ -1,10 +1,15 @@
 package com.mypackage.myapp.controllers;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestUtils;
@@ -57,10 +62,30 @@ public class UserController {
 		// + user.getTelephone() + " Email: " + user.getEmail());
 
 		if (result.getErrorCount() == 0) {
-			if (user.getId() == 0)
-				userService.addUser(user);
-			else
-				userService.editUser(user);
+//			if (user.getId() == 0)
+//				userService.addUser(user);
+//			else
+//				userService.editUser(user);
+		
+		//GET CURRENT LOGGED USER authorities
+	      @SuppressWarnings("unchecked")
+		Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) 
+	    		  SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+	      
+	      
+	      if (authorities != null) {
+	          for (Iterator it = authorities.iterator(); it.hasNext();) {
+	            Object candidate = it.next();
+	           System.out.println(candidate.toString()); 
+	            if (candidate.toString().equals("ROLE_ADMIN")) {
+	            	userService.addUserAdmin(user);//ADMIN DODAJE Z UPRAWNIENIAMI ADMINA I USERA
+	            }
+	            else userService.addUser(user);//GOSC MOZE MIEC TYLKO UPTRAWNIENIA USERA
+	          }
+	        }
+	      
+	      
+
 
 
 			return "redirect:home.html";// z tego kontrolera jestesmy

@@ -7,7 +7,10 @@ import com.mypackage.myapp.domain.UserRole;
 
 public interface UserService {
 
+	public void addUserAdmin(User user);
+	
 	public void addUser(User user);
+
 
 	public void editUser(User user);
 
