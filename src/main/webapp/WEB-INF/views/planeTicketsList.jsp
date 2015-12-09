@@ -49,8 +49,23 @@
         <li><a href="contact.html"><spring:message code="label.navbar.contact" /></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> <spring:message code="label.navbar.login" /></a></li>
+      	<!-- csrt for log out-->
+      	<c:url value="/j_spring_security_logout" var="logoutUrl" />
+      
+      	<c:if test="${pageContext.request.userPrincipal.name == null}">
+        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> <spring:message code="label.navbar.login" /></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> <spring:message code="label.navbar.singup" /></a></li>
+        
+      	</c:if>
+      	<c:if test="${pageContext.request.userPrincipal.name != null}">
+        <li><a href="javascript:formSubmit()"><span class="glyphicon glyphicon-log-out"></span> <spring:message code="label.navbar.logout" /></a></li>
+      	</c:if> 
       </ul>
+      	<form action="${logoutUrl}" method="post" id="logoutForm">
+		  <input type="hidden" 
+			name="${_csrf.parameterName}"
+			value="${_csrf.token}" />
+		</form>
     </div>
   </div>
 </nav>
@@ -59,19 +74,32 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
   			<ul class="nav nav-pills nav-stacked">
-			  <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addplane" /></a></li>
-			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addtrain" /></a></li>
-			<li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
-			<li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
-						<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
-						<li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
-												<li><a href="trainTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsListBook" /></a></li>
-												<li><a href="trainOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
-			
+					 <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
+					 <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /> </a></li>
 			</ul>
-    
+		    &nbsp;
+		    <ul class="nav nav-pills nav-stacked">			   			
+					 <li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
+					  <li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
+			</ul>
+			&nbsp;
+			<ul class="nav nav-pills nav-stacked">					 
+					 <li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
+				     <li><a href="trainTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsListBook" /></a></li>
+			</ul>
+			&nbsp;
+			<ul class="nav nav-pills nav-stacked">		
+					 <li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
+					 <li><a href="trainOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
+			</ul>
+			 &nbsp;
+			<ul class="nav nav-pills nav-stacked">					 
+					 <li><a href="userRole.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.userRole" /></a></li>
+			         <li><a href="user.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.user" /></a></li>
+    		</ul>
+    		&nbsp;		
     </div>
-    <div class="col-sm-9 text-left"> 
+    <div class="col-sm-8 text-left "> 
       <h1>List of plane Tickets</h1>
       
 		 <table class="table table-bordered">
@@ -188,7 +216,10 @@
             return this.href == url;
         }).parent().addClass('active').parent().parent().addClass('active');
     
-
+      //login logout
+		function formSubmit() {
+			document.getElementById("logoutForm").submit();
+		}
   
 </script>
 

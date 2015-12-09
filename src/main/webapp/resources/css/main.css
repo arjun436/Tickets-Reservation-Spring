@@ -22,7 +22,7 @@
     .sidenav {
       padding-top: 75px;
       background-color: #ffffff;
-      height: 100%;
+      height: auto;
     }
     
     /* Set black background color, white text and some padding */
