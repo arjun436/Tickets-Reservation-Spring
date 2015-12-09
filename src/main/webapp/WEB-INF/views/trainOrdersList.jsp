@@ -72,7 +72,7 @@
     
     </div>
     <div class="col-sm-9 text-left"> 
-      <h1>List of plane Tickets</h1>
+      <h1>List of booked train Tickets</h1>
       
 		 <table class="table table-bordered">
 		    <thead>
