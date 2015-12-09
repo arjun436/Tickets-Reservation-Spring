@@ -59,62 +59,33 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
   			<ul class="nav nav-pills nav-stacked">
-			  <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addplane" /></a></li>
-			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addtrain" /></a></li>
-			<li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
+			 <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
+			  <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /></a></li>
+			 <li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
 			<li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
-			<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
-			<li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
+						<li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
+						<li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
 												<li><a href="trainTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsListBook" /></a></li>
 												<li><a href="trainOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
 			
 			</ul>
     
     </div>
-    <div class="col-sm-9 text-left"> 
-      <h1>List of booked train Tickets</h1>
+    <div class="col-sm-8 text-left"> 
+      <h1>Define new plane ticketuser role</h1>
       
-		 <table class="table table-bordered">
-		    <thead>
-		      <tr>
-		        <th><spring:message code="label.ticket.plane.order.firstname"/></th>
-		        <th><spring:message code="label.ticket.plane.order.secondname"/></th>
-		        <th><spring:message code="label.ticket.plane.order.lastname"/></th>
-		        <th><spring:message code="label.ticket.plane.order.state"/></th>
-		        <th><spring:message code="label.ticket.plane.order.city"/></th>
-		        <th><spring:message code="label.ticket.plane.order.street"/></th>
-		        <th><spring:message code="label.ticket.plane.order.email"/></th>
-		        <th><spring:message code="label.ticket.plane.order.telephone"/>
-		        <th><spring:message code="label.ticket.train.transitNumber"/></th>		        
-		        <th><spring:message code="label.ticket.actions"/></th>
-		        
-		        
-		      </tr>
-			</thead>
-
-			    			    <tbody>
-			<c:forEach items="${trainOrderList}" var="trainTicketOrder">
-				<tr>
-					
-					<td>${trainTicketOrder.firstname}</td>
-					<td>${trainTicketOrder.secondname}</td>
-					<td>${trainTicketOrder.lastname}</td>
-					<td>${trainTicketOrder.state}</td>
-					<td>${trainTicketOrder.city}</td>
-					<td>${trainTicketOrder.street}</td>
-					<td>${trainTicketOrder.email}</td>
-					<td>${trainTicketOrder.telephone}</td>
-					<td>${trainTicketOrder.trainTicket.transitNumber}</td>
-					
-									 
-			<td> <a href="deleteTrainOrder/${trainTicketOrder.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a> </td>
-				<!--<a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>  -->		
-					
+			<form:form method="post" class="form-horizontal" action="addUserRole.html" commandName="userRole">
+			   <fieldset>
+			 	  <form:hidden path="id"/>
+			      <t:input path="role" label="label.user.role" required="true"/>
 
 
-			</c:forEach>
-			    </tbody>
- 		 </table>
+			    </fieldset>
+			    <div class="myButton">
+			      <input type="submit" class="btn btn-info btn-block" value="<spring:message code="label.button.submit"/> ">
+			    </div>		    
+
+			</form:form>  
 
 
     </div>

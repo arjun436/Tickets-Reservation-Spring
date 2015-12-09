@@ -46,7 +46,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="http://localhost:8080/myapp/"><spring:message code="label.navbar.home" /></a></li>
+        <li><a href="home.html"><spring:message code="label.navbar.home" /></a></li>
         <li><a href="about.html"><spring:message code="label.navbar.about" /></a></li>
         <li><a href="contact.html"><spring:message code="label.navbar.contact" /></a></li>
       </ul>
