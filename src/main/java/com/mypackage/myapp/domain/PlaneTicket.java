@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,25 +34,7 @@ public class PlaneTicket {
 	private String flightPrice;
 	
 	
-	@ManyToOne
-	private User user;
-	
-	@OneToMany(mappedBy = "planeTicket")
-	private Set<PlaneTicketOrder> planeTicketOrder = new HashSet<PlaneTicketOrder>(0);
-	
-	
-	public Set<PlaneTicketOrder> getPlaneTicketOrder() {
-		return planeTicketOrder;
-	}
-	public void setPlaneTicketOrder(Set<PlaneTicketOrder> planeTicketOrder) {
-		this.planeTicketOrder = planeTicketOrder;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+
 	public int getId() {
 		return id;
 	}

@@ -1,7 +1,6 @@
 package com.mypackage.myapp.domain;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -41,16 +39,9 @@ public class User {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<UserRole> userRole = new HashSet<UserRole>(0);
 
-	
-	
-	
-	@OneToMany(mappedBy = "user")
-	private Set<PlaneTicket> planeTicket = new HashSet<PlaneTicket>(0);
+	@OneToMany(fetch = FetchType.EAGER)
+	private Set<PlaneTicketOrder> planeTicketOrder = new HashSet<PlaneTicketOrder>(0);
 
-	
-	@OneToMany(mappedBy = "user")
-	private Set<PlaneTicketOrder> planeTicketOrder = new HashSet<PlaneTicketOrder>(0);	
-	
 	
 	
 	
@@ -62,20 +53,6 @@ public class User {
 	public void setPlaneTicketOrder(Set<PlaneTicketOrder> planeTicketOrder) {
 		this.planeTicketOrder = planeTicketOrder;
 	}
-
-	public Set<PlaneTicket> getPlaneTicket() {
-		return planeTicket;
-	}
-
-	public void setPlaneTicket(Set<PlaneTicket> planeTicket) {
-		this.planeTicket = planeTicket;
-	}
-
-
-
-
-
-
 
 	public String getLogin() {
 		return login;
@@ -172,15 +149,5 @@ public class User {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-
-	public Set<PlaneTicket> getUserPlaneTicket() {
-		return planeTicket;
-	}
-
-	public void setUserPlaneTicket(Set<PlaneTicket> userPlaneTicket) {
-		this.planeTicket = userPlaneTicket;
-	}
-
-
 
 }

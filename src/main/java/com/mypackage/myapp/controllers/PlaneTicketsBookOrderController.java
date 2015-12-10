@@ -1,5 +1,7 @@
 package com.mypackage.myapp.controllers;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -65,12 +67,41 @@ public class PlaneTicketsBookOrderController {
 		PlaneTicket planeTicket = (PlaneTicket)sessionObj.getAttribute("planeTicket");
 		
 		
+		planeTicketOrder.setPlaneTicket(planeTicket);
+
+		
+		planeTicketOrderService.addPlaneTicketOrder(planeTicketOrder);
+
+		
+		
+		
+		
+		
 		try{
 			Integer currentUserId = userService.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
 			if(currentUserId != null){
-				User currentUser = userService.getUser(currentUserId);
 				
-				planeTicketOrder.setUser(currentUser);
+				
+				User currentUser = userService.getUser(currentUserId);
+
+				Set<PlaneTicketOrder> currentUserOrders = currentUser.getPlaneTicketOrder();
+				currentUserOrders.add(planeTicketOrder);
+				currentUser.setPlaneTicketOrder(currentUserOrders);
+
+				userService.editUser(currentUser);
+				
+				
+//				System.out.println(planeTicket.getId());
+//				//zaktualizowanie planeticktow jakie posiada user
+//				Set<PlaneTicket> planeTickets = currentUser.getPlaneTicket();
+//				planeTickets.add(planeTicket);				
+//				currentUser.setPlaneTicket(planeTickets);
+//				planeTicketService.getPlaneTicket(planeTicket.getId()).setUser(currentUser);
+//				
+//				//zapisanie w orderze usera
+//				planeTicketOrder.setUser(currentUser);
+				
+				
 				
 			}
 		}catch(NullPointerException e){
@@ -81,9 +112,10 @@ public class PlaneTicketsBookOrderController {
 		
 //		Integer planeTicketId = Integer.parseInt(planeTicketOrder.getPlaneTicketId());
 //		planeTicketOrder.setPlaneTicket(planeTicketService.getPlaneTicket(planeTicketId));
-		planeTicketOrder.setPlaneTicket(planeTicket);
+//		Set<PlaneTicket> planeTickets = planeTicketOrder.getPlaneTicket();
+//		planeTickets.add(planeTicket);
+//		planeTicketOrder.setPlaneTicket(planeTickets);
 
-		planeTicketOrderService.addPlaneTicketOrder(planeTicketOrder);
 
 		return "redirect:http://localhost:8080/myapp/";
 

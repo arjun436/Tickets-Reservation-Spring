@@ -1,13 +1,12 @@
 package com.mypackage.myapp.domain;
 
-import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -33,25 +32,16 @@ public class PlaneTicketOrder {
 	
 
 	
-	@ManyToOne
-	private User user;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private PlaneTicket planeTicket = new PlaneTicket();
 
-	@ManyToOne
-	private PlaneTicket planeTicket;
-	
-	
 
 	public PlaneTicket getPlaneTicket() {
 		return planeTicket;
 	}
 	public void setPlaneTicket(PlaneTicket planeTicket) {
 		this.planeTicket = planeTicket;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
 	}
 	public int getId() {
 		return id;
