@@ -31,19 +31,26 @@ public class PlaneTicketOrder {
 	private String email;
 	private String telephone;
 	
+
+	
+	@ManyToOne
+	private User user;
+
 	@ManyToOne
 	private PlaneTicket planeTicket;
 	
-	@OneToMany(mappedBy = "planeTicketOrder")
-	private List<User> user;
-	
-	
 	
 
-	public List<User> getUser() {
+	public PlaneTicket getPlaneTicket() {
+		return planeTicket;
+	}
+	public void setPlaneTicket(PlaneTicket planeTicket) {
+		this.planeTicket = planeTicket;
+	}
+	public User getUser() {
 		return user;
 	}
-	public void setUser(List<User> user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 	public int getId() {
@@ -99,12 +106,6 @@ public class PlaneTicketOrder {
 	}
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
-	}
-	public PlaneTicket getPlaneTicket() {
-		return planeTicket;
-	}
-	public void setPlaneTicket(PlaneTicket planeTicket) {
-		this.planeTicket = planeTicket;
 	}
 
 

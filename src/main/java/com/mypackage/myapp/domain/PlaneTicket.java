@@ -2,12 +2,15 @@ package com.mypackage.myapp.domain;
 
 
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -29,9 +32,26 @@ public class PlaneTicket {
 	private String flightHourStop;
 	private String flightPrice;
 	
-	@OneToMany(mappedBy = "planeTicket")
-	private List<PlaneTicketOrder> planeTicketOrder;
 	
+	@ManyToOne
+	private User user;
+	
+	@OneToMany(mappedBy = "planeTicket")
+	private Set<PlaneTicketOrder> planeTicketOrder = new HashSet<PlaneTicketOrder>(0);
+	
+	
+	public Set<PlaneTicketOrder> getPlaneTicketOrder() {
+		return planeTicketOrder;
+	}
+	public void setPlaneTicketOrder(Set<PlaneTicketOrder> planeTicketOrder) {
+		this.planeTicketOrder = planeTicketOrder;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getId() {
 		return id;
 	}
@@ -86,12 +106,7 @@ public class PlaneTicket {
 	public void setFlightPrice(String flightPrice) {
 		this.flightPrice = flightPrice;
 	}
-	public List<PlaneTicketOrder> getPlaneTicketOrder() {
-		return planeTicketOrder;
-	}
-	public void setPlaneTicketOrder(List<PlaneTicketOrder> planeTicketOrder) {
-		this.planeTicketOrder = planeTicketOrder;
-	}
+
 
 
 

@@ -44,24 +44,25 @@ public class User {
 	
 	
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user")
 	private Set<PlaneTicket> planeTicket = new HashSet<PlaneTicket>(0);
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	private Set<TrainTicket> trainTicket = new HashSet<TrainTicket>(0);
-
-	
-	@ManyToOne
-	private PlaneTicketOrder planeTicketOrder;
 	
 	@OneToMany(mappedBy = "user")
-	private List<TrainTicketOrder> trainTicketOrder;
+	private Set<PlaneTicketOrder> planeTicketOrder = new HashSet<PlaneTicketOrder>(0);	
 	
 	
 	
 	
 	
-	
+	public Set<PlaneTicketOrder> getPlaneTicketOrder() {
+		return planeTicketOrder;
+	}
+
+	public void setPlaneTicketOrder(Set<PlaneTicketOrder> planeTicketOrder) {
+		this.planeTicketOrder = planeTicketOrder;
+	}
+
 	public Set<PlaneTicket> getPlaneTicket() {
 		return planeTicket;
 	}
@@ -70,31 +71,11 @@ public class User {
 		this.planeTicket = planeTicket;
 	}
 
-	public Set<TrainTicket> getTrainTicket() {
-		return trainTicket;
-	}
-
-	public void setTrainTicket(Set<TrainTicket> trainTicket) {
-		this.trainTicket = trainTicket;
-	}
 
 
 
-	public PlaneTicketOrder getPlaneTicketOrder() {
-		return planeTicketOrder;
-	}
 
-	public void setPlaneTicketOrder(PlaneTicketOrder planeTicketOrder) {
-		this.planeTicketOrder = planeTicketOrder;
-	}
 
-	public List<TrainTicketOrder> getTrainTicketOrder() {
-		return trainTicketOrder;
-	}
-
-	public void setTrainTicketOrder(List<TrainTicketOrder> trainTicketOrder) {
-		this.trainTicketOrder = trainTicketOrder;
-	}
 
 	public String getLogin() {
 		return login;
@@ -200,12 +181,6 @@ public class User {
 		this.planeTicket = userPlaneTicket;
 	}
 
-	public Set<TrainTicket> getUserTrainTicket() {
-		return trainTicket;
-	}
 
-	public void setUserTrainTicket(Set<TrainTicket> userTrainTicket) {
-		this.trainTicket = userTrainTicket;
-	}
 
 }
