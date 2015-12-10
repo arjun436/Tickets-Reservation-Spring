@@ -1,10 +1,13 @@
 package com.mypackage.myapp.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -31,13 +34,16 @@ public class PlaneTicketOrder {
 	@ManyToOne
 	private PlaneTicket planeTicket;
 	
-	@ManyToOne
-	private User user;
+	@OneToMany(mappedBy = "planeTicketOrder")
+	private List<User> user;
 	
-	public User getUser() {
+	
+	
+
+	public List<User> getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(List<User> user) {
 		this.user = user;
 	}
 	public int getId() {

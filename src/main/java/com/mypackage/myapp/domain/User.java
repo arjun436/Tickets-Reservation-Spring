@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -40,19 +41,61 @@ public class User {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<UserRole> userRole = new HashSet<UserRole>(0);
 
+	
+	
+	
 	@ManyToMany(fetch = FetchType.EAGER)
-	private Set<PlaneTicket> userPlaneTicket = new HashSet<PlaneTicket>(0);
+	private Set<PlaneTicket> planeTicket = new HashSet<PlaneTicket>(0);
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	private Set<TrainTicket> userTrainTicket = new HashSet<TrainTicket>(0);
+	private Set<TrainTicket> trainTicket = new HashSet<TrainTicket>(0);
 
 	
-	@OneToMany(mappedBy = "user")
-	private List<PlaneTicketOrder> planeTicketOrder;
+	@ManyToOne
+	private PlaneTicketOrder planeTicketOrder;
 	
 	@OneToMany(mappedBy = "user")
 	private List<TrainTicketOrder> trainTicketOrder;
 	
+	
+	
+	
+	
+	
+	public Set<PlaneTicket> getPlaneTicket() {
+		return planeTicket;
+	}
+
+	public void setPlaneTicket(Set<PlaneTicket> planeTicket) {
+		this.planeTicket = planeTicket;
+	}
+
+	public Set<TrainTicket> getTrainTicket() {
+		return trainTicket;
+	}
+
+	public void setTrainTicket(Set<TrainTicket> trainTicket) {
+		this.trainTicket = trainTicket;
+	}
+
+
+
+	public PlaneTicketOrder getPlaneTicketOrder() {
+		return planeTicketOrder;
+	}
+
+	public void setPlaneTicketOrder(PlaneTicketOrder planeTicketOrder) {
+		this.planeTicketOrder = planeTicketOrder;
+	}
+
+	public List<TrainTicketOrder> getTrainTicketOrder() {
+		return trainTicketOrder;
+	}
+
+	public void setTrainTicketOrder(List<TrainTicketOrder> trainTicketOrder) {
+		this.trainTicketOrder = trainTicketOrder;
+	}
+
 	public String getLogin() {
 		return login;
 	}
@@ -150,19 +193,19 @@ public class User {
 	}
 
 	public Set<PlaneTicket> getUserPlaneTicket() {
-		return userPlaneTicket;
+		return planeTicket;
 	}
 
 	public void setUserPlaneTicket(Set<PlaneTicket> userPlaneTicket) {
-		this.userPlaneTicket = userPlaneTicket;
+		this.planeTicket = userPlaneTicket;
 	}
 
 	public Set<TrainTicket> getUserTrainTicket() {
-		return userTrainTicket;
+		return trainTicket;
 	}
 
 	public void setUserTrainTicket(Set<TrainTicket> userTrainTicket) {
-		this.userTrainTicket = userTrainTicket;
+		this.trainTicket = userTrainTicket;
 	}
 
 }
