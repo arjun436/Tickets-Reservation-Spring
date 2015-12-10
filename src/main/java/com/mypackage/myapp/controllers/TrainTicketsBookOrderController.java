@@ -1,6 +1,7 @@
 package com.mypackage.myapp.controllers;
 
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.mypackage.myapp.domain.PlaneTicket;
+import com.mypackage.myapp.domain.PlaneTicketOrder;
 import com.mypackage.myapp.domain.TrainTicket;
 import com.mypackage.myapp.domain.TrainTicketOrder;
 import com.mypackage.myapp.domain.User;
@@ -62,25 +65,29 @@ public class TrainTicketsBookOrderController {
 	public String addTrainTicketOrder(@ModelAttribute("trainTicketOrder") TrainTicketOrder trainTicketOrder,
 			BindingResult result, HttpServletRequest request, Map<String, Object> map, HttpSession sessionObj) {// przyjmujemy
 
-		TrainTicket trainTicket = (TrainTicket)sessionObj.getAttribute("trainTicket");
+		TrainTicket trainTicket = (TrainTicket) sessionObj.getAttribute("trainTicket");
 
-		try{
-			Integer currentUserId = userService.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
-			if(currentUserId != null){
-				User currentUser = userService.getUser(currentUserId);
-				
-				trainTicketOrder.setUser(currentUser);
-				
-			}
-		}catch(NullPointerException e){
-			System.out.println("no logged user");
-		}
-//		Integer trainTicketId = Integer.parseInt(trainTicketOrder.getTrainTicketId());
-//		trainTicketOrder.setTrainTicket(trainTicketService.getTrainTicket(trainTicketId));
 		trainTicketOrder.setTrainTicket(trainTicket);
 
-		
 		trainTicketOrderService.addTrainTicketOrder(trainTicketOrder);
+
+		try {
+			Integer currentUserId = userService
+					.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+			if (currentUserId != null) {
+
+				User currentUser = userService.getUser(currentUserId);
+
+				Set<TrainTicketOrder> currentUserOrders = currentUser.getTrainTicketOrder();
+				currentUserOrders.add(trainTicketOrder);
+				currentUser.setTrainTicketOrder(currentUserOrders);
+
+				userService.editUser(currentUser);
+
+			}
+		} catch (NullPointerException e) {
+			System.out.println("no logged user");
+		}
 
 		return "redirect:http://localhost:8080/myapp/";
 

@@ -1,6 +1,7 @@
 package com.mypackage.myapp.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,18 +26,10 @@ public class TrainTicketOrder {
 	private String email;
 	private String telephone;
 
-	@ManyToOne
-	private TrainTicket trainTicket;
-
-	@ManyToOne
-	private User user;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private TrainTicket trainTicket = new TrainTicket();
 	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+
 	public int getId() {
 		return id;
 	}

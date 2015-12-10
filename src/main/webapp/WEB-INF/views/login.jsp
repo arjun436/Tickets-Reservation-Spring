@@ -106,8 +106,7 @@
         <li><a href="contact.html"><spring:message code="label.navbar.contact" /></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      	<!-- csrt for log out-->
-      	<c:url value="/j_spring_security_logout" var="logoutUrl" />
+
       
       	<c:if test="${pageContext.request.userPrincipal.name == null}">
         <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> <spring:message code="label.navbar.login" /></a></li>
@@ -115,6 +114,8 @@
         
       	</c:if>
       	<c:if test="${pageContext.request.userPrincipal.name != null}">
+      	      	<!-- csrt for log out-->
+      	<c:url value="/j_spring_security_logout" var="logoutUrl" />
         <li><a href="javascript:formSubmit()"><span class="glyphicon glyphicon-log-out"></span> <spring:message code="label.navbar.logout" /></a></li>
       	</c:if> 
       </ul>
@@ -251,7 +252,10 @@
         }).parent().addClass('active').parent().parent().addClass('active');
     
 
-  
+      //login logout
+		function formSubmit() {
+			document.getElementById("logoutForm").submit();
+		}
 </script>
 
 

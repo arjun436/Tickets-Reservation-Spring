@@ -29,9 +29,7 @@ public class TrainTicket {
 	private String transitDateStop;
 	private String transitHourStop;
 	private String transitPrice;
-	
-	@OneToMany(mappedBy = "trainTicket")
-	private List<TrainTicketOrder> trainTicketOrder;
+
 	
 	public int getId() {
 		return id;
@@ -93,11 +91,6 @@ public class TrainTicket {
 	public void setTransitPrice(String transitPrice) {
 		this.transitPrice = transitPrice;
 	}
-	public List<TrainTicketOrder> getTrainTicketOrder() {
-		return trainTicketOrder;
-	}
-	public void setTrainTicketOrder(List<TrainTicketOrder> trainTicketOrder) {
-		this.trainTicketOrder = trainTicketOrder;
-	}
+
 
 }

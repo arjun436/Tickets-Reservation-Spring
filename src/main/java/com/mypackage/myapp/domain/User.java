@@ -42,10 +42,19 @@ public class User {
 	@OneToMany(fetch = FetchType.EAGER)
 	private Set<PlaneTicketOrder> planeTicketOrder = new HashSet<PlaneTicketOrder>(0);
 
+	@OneToMany(fetch = FetchType.EAGER)
+	private Set<TrainTicketOrder> trainTicketOrder = new HashSet<TrainTicketOrder>(0);
 	
 	
 	
-	
+	public Set<TrainTicketOrder> getTrainTicketOrder() {
+		return trainTicketOrder;
+	}
+
+	public void setTrainTicketOrder(Set<TrainTicketOrder> trainTicketOrder) {
+		this.trainTicketOrder = trainTicketOrder;
+	}
+
 	public Set<PlaneTicketOrder> getPlaneTicketOrder() {
 		return planeTicketOrder;
 	}

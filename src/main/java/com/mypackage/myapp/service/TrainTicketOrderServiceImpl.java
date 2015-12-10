@@ -28,17 +28,6 @@ public class TrainTicketOrderServiceImpl implements TrainTicketOrderService {
 	@Transactional
 	public void addTrainTicketOrder(TrainTicketOrder trainTicketOrder) {
 		
-		try{
-			Integer currentUserId = userDAOImpl.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
-			if(currentUserId != null){
-				User currentUser = userDAOImpl.getUser(currentUserId);
-				Set<TrainTicket> userTrainTicket = currentUser.getUserTrainTicket();
-				userTrainTicket.add(trainTicketOrder.getTrainTicket());
-				currentUser.setUserTrainTicket(userTrainTicket);
-			}
-		}catch(NullPointerException e){
-			System.out.println("no logged user");
-		}
 		
 		trainTicketOrderDAO.addTrainTicketOrder(trainTicketOrder);
 		

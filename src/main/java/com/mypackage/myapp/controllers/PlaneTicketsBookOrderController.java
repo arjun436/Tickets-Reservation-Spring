@@ -1,7 +1,5 @@
 package com.mypackage.myapp.controllers;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -34,22 +32,23 @@ public class PlaneTicketsBookOrderController {
 
 	@Autowired
 	PlaneTicketOrderService planeTicketOrderService;
-	
+
 	@Autowired
 	UserService userService;
 
 	@RequestMapping("/planeTicketsListBookOrder")
-	public String listPlaneTicketsBookOrder(Map<String, Object> map, HttpServletRequest request, HttpSession sessio, HttpSession sessionObj) {
+	public String listPlaneTicketsBookOrder(Map<String, Object> map, HttpServletRequest request, HttpSession sessio,
+			HttpSession sessionObj) {
 
 		Integer planeTicketId = ServletRequestUtils.getIntParameter(request, "planeTicketId", -1);
 
 		PlaneTicket planeTicket = new PlaneTicket();
 		planeTicket = planeTicketService.getPlaneTicket(planeTicketId);
-		
+
 		PlaneTicketOrder planeTicketOrder = new PlaneTicketOrder();
-//		planeTicketOrder.setPlaneTicketId(planeTicketId.toString());
-		
-		sessionObj.setAttribute("planeTicket" , planeTicket);
+		// planeTicketOrder.setPlaneTicketId(planeTicketId.toString());
+
+		sessionObj.setAttribute("planeTicket", planeTicket);
 
 		map.put("planeTicketOrder", planeTicketOrder);
 
@@ -62,26 +61,17 @@ public class PlaneTicketsBookOrderController {
 	public String addPlaneTicketOrder(@ModelAttribute("planeTicketOrder") PlaneTicketOrder planeTicketOrder,
 			BindingResult result, HttpServletRequest request, Map<String, Object> map, HttpSession sessionObj) {// przyjmujemy
 
-		
-		
-		PlaneTicket planeTicket = (PlaneTicket)sessionObj.getAttribute("planeTicket");
-		
-		
+		PlaneTicket planeTicket = (PlaneTicket) sessionObj.getAttribute("planeTicket");
+
 		planeTicketOrder.setPlaneTicket(planeTicket);
 
-		
 		planeTicketOrderService.addPlaneTicketOrder(planeTicketOrder);
 
-		
-		
-		
-		
-		
-		try{
-			Integer currentUserId = userService.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
-			if(currentUserId != null){
-				
-				
+		try {
+			Integer currentUserId = userService
+					.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+			if (currentUserId != null) {
+
 				User currentUser = userService.getUser(currentUserId);
 
 				Set<PlaneTicketOrder> currentUserOrders = currentUser.getPlaneTicketOrder();
@@ -89,33 +79,11 @@ public class PlaneTicketsBookOrderController {
 				currentUser.setPlaneTicketOrder(currentUserOrders);
 
 				userService.editUser(currentUser);
-				
-				
-//				System.out.println(planeTicket.getId());
-//				//zaktualizowanie planeticktow jakie posiada user
-//				Set<PlaneTicket> planeTickets = currentUser.getPlaneTicket();
-//				planeTickets.add(planeTicket);				
-//				currentUser.setPlaneTicket(planeTickets);
-//				planeTicketService.getPlaneTicket(planeTicket.getId()).setUser(currentUser);
-//				
-//				//zapisanie w orderze usera
-//				planeTicketOrder.setUser(currentUser);
-				
-				
-				
+
 			}
-		}catch(NullPointerException e){
+		} catch (NullPointerException e) {
 			System.out.println("no logged user");
 		}
-		
-		
-		
-//		Integer planeTicketId = Integer.parseInt(planeTicketOrder.getPlaneTicketId());
-//		planeTicketOrder.setPlaneTicket(planeTicketService.getPlaneTicket(planeTicketId));
-//		Set<PlaneTicket> planeTickets = planeTicketOrder.getPlaneTicket();
-//		planeTickets.add(planeTicket);
-//		planeTicketOrder.setPlaneTicket(planeTickets);
-
 
 		return "redirect:http://localhost:8080/myapp/";
 
