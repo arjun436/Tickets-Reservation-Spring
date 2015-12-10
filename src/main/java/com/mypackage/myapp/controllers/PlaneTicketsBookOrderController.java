@@ -1,11 +1,13 @@
 package com.mypackage.myapp.controllers;
 
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestUtils;
@@ -16,8 +18,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mypackage.myapp.domain.PlaneTicket;
 import com.mypackage.myapp.domain.PlaneTicketOrder;
+import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.service.PlaneTicketOrderService;
 import com.mypackage.myapp.service.PlaneTicketService;
+import com.mypackage.myapp.service.UserService;
 
 @Controller
 @SessionAttributes
@@ -28,6 +32,9 @@ public class PlaneTicketsBookOrderController {
 
 	@Autowired
 	PlaneTicketOrderService planeTicketOrderService;
+	
+	@Autowired
+	UserService userService;
 
 	@RequestMapping("/planeTicketsListBookOrder")
 	public String listPlaneTicketsBookOrder(Map<String, Object> map, HttpServletRequest request, HttpSession sessio, HttpSession sessionObj) {
@@ -56,6 +63,21 @@ public class PlaneTicketsBookOrderController {
 		
 		
 		PlaneTicket planeTicket = (PlaneTicket)sessionObj.getAttribute("planeTicket");
+		
+		
+		try{
+			Integer currentUserId = userService.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+			if(currentUserId != null){
+				User currentUser = userService.getUser(currentUserId);
+				
+				planeTicketOrder.setUser(currentUser);
+				
+			}
+		}catch(NullPointerException e){
+			System.out.println("no logged user");
+		}
+		
+		
 		
 //		Integer planeTicketId = Integer.parseInt(planeTicketOrder.getPlaneTicketId());
 //		planeTicketOrder.setPlaneTicket(planeTicketService.getPlaneTicket(planeTicketId));

@@ -31,9 +31,13 @@ public class PlaneTicketOrderServiceImpl implements PlaneTicketOrderService{
 			Integer currentUserId = userDAOImpl.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
 			if(currentUserId != null){
 				User currentUser = userDAOImpl.getUser(currentUserId);
+				
 				Set<PlaneTicket> userPlaneTicket = currentUser.getUserPlaneTicket();
 				userPlaneTicket.add(planeTicketOrder.getPlaneTicket());
 				currentUser.setUserPlaneTicket(userPlaneTicket);
+				
+
+				
 			}
 		}catch(NullPointerException e){
 			System.out.println("no logged user");

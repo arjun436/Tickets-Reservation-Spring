@@ -77,5 +77,11 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getUserRole(id);
 	}
 
+	@Override
+	public User findByLogin(String login) {
+		// TODO Auto-generated method stub
+		return userDAO.findByLogin(login);
+	}
+
 
 }

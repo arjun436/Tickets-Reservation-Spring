@@ -28,6 +28,15 @@ public class TrainTicketOrder {
 	@ManyToOne
 	private TrainTicket trainTicket;
 
+	@ManyToOne
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getId() {
 		return id;
 	}

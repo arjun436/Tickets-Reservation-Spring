@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestUtils;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mypackage.myapp.domain.TrainTicket;
 import com.mypackage.myapp.domain.TrainTicketOrder;
+import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.service.TrainTicketOrderService;
 import com.mypackage.myapp.service.TrainTicketService;
+import com.mypackage.myapp.service.UserService;
 
 @Controller
 @SessionAttributes
@@ -30,6 +33,9 @@ public class TrainTicketsBookOrderController {
 	@Autowired
 	TrainTicketOrderService trainTicketOrderService;
 
+	@Autowired
+	UserService userService;
+	
 	@RequestMapping("/trainTicketsListBookOrder")
 	public String listTrainTicketsBookOrder(Map<String, Object> map, HttpServletRequest request, HttpSession sessionObj) {
 
@@ -58,7 +64,17 @@ public class TrainTicketsBookOrderController {
 
 		TrainTicket trainTicket = (TrainTicket)sessionObj.getAttribute("trainTicket");
 
-		
+		try{
+			Integer currentUserId = userService.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+			if(currentUserId != null){
+				User currentUser = userService.getUser(currentUserId);
+				
+				trainTicketOrder.setUser(currentUser);
+				
+			}
+		}catch(NullPointerException e){
+			System.out.println("no logged user");
+		}
 //		Integer trainTicketId = Integer.parseInt(trainTicketOrder.getTrainTicketId());
 //		trainTicketOrder.setTrainTicket(trainTicketService.getTrainTicket(trainTicketId));
 		trainTicketOrder.setTrainTicket(trainTicket);

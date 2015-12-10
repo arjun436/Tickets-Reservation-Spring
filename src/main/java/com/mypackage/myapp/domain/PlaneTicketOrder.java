@@ -1,11 +1,9 @@
 package com.mypackage.myapp.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -33,6 +31,15 @@ public class PlaneTicketOrder {
 	@ManyToOne
 	private PlaneTicket planeTicket;
 	
+	@ManyToOne
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getId() {
 		return id;
 	}

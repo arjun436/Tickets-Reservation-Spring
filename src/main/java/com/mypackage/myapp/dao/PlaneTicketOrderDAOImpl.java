@@ -28,12 +28,6 @@ public class PlaneTicketOrderDAOImpl implements PlaneTicketOrderDAO {
 	}
 	
 	@Override
-	public List<PlaneTicketOrder> listMyPlaneTicketOrder() {
-		return sessionFactory.getCurrentSession().createQuery("from PlaneTicketOrder order by id").list();
-
-	}
-
-	@Override
 	public void removePlaneTicketOrder(int id) {
 		PlaneTicketOrder planeTicketOrder = (PlaneTicketOrder) sessionFactory.getCurrentSession().load(PlaneTicketOrder.class, id);
 		if (null != planeTicketOrder) {
