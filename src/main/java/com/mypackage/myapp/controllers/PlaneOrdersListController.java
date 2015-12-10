@@ -5,16 +5,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.service.PlaneTicketOrderService;
 import com.mypackage.myapp.service.UserService;
 
@@ -67,9 +65,19 @@ public class PlaneOrdersListController {
 //	      user.getAuthorities()
 //	      System.out.println(userId);
 //	      userService.getUser(userId);
-		System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
+		try{
+			Integer currentUserId = userService.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+			if(currentUserId != null){
+				User currentUser = userService.getUser(currentUserId);
+				
+				map.put("planeOrderList", currentUser.getUserPlaneTicket());
+
+				
+			}
+		}catch(NullPointerException e){
+			System.out.println("no logged user");
+		}		
 		
-		map.put("planeOrderList", planeTicketOrderService.listPlaneTicketOrder());
 
 		return "myPlaneOrders";
 	}
