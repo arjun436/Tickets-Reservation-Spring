@@ -105,39 +105,34 @@
 		 <table class="table table-bordered">
 		    <thead>
 		      <tr>
-		        <th><spring:message code="label.ticket.train.transitNumber"/></th>
-		        <th><spring:message code="label.ticket.train.transitName"/></th>
-		        <th><spring:message code="label.ticket.train.transitFrom"/></th>
-		        <th><spring:message code="label.ticket.train.transitTo"/></th>
-		        <th><spring:message code="label.ticket.train.transitDateStart"/></th>
-		        <th><spring:message code="label.ticket.train.transitHourStart"/></th>
-		        <th><spring:message code="label.ticket.train.transitDateStop"/></th>
-		        <th><spring:message code="label.ticket.train.transitHourStop"/></th>
-		        <th><spring:message code="label.ticket.train.transitPrice"/> <spring:message code="label.ticket.train.transitPrice.currency"/></th>
-		        <th><spring:message code="label.ticket.actions"/></th>
+		     		        <th><spring:message code="label.ticket.plane.order.firstname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.secondname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.lastname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.state"/></th>
+		        <th><spring:message code="label.ticket.plane.order.city"/></th>
+		        <th><spring:message code="label.ticket.plane.order.street"/></th>
+		        <th><spring:message code="label.ticket.plane.order.email"/></th>
+		        <th><spring:message code="label.ticket.plane.order.telephone"/>
+		        <th><spring:message code="label.ticket.train.transitNumber"/></th>		        
+		        
 		        
 		      </tr>
 			</thead>
 
 			    			    <tbody>
-			<c:forEach items="${trainOrderList}" var="trainTicketOrder">
+			<c:forEach items="${trainOrderList}" var="trainOrder">
 				<tr>
 					
-					<td>${trainTicketOrder.transitNumber}</td>
-					<td>${trainTicketOrder.transitName}</td>
-					<td>${trainTicketOrder.transitFrom}</td>
-					<td>${trainTicketOrder.transitTo}</td>
-					<td>${trainTicketOrder.transitDateStart}</td>
-					<td>${trainTicketOrder.transitHourStart}</td>
-					<td>${trainTicketOrder.transitDateStop}</td>
-					<td>${trainTicketOrder.transitHourStop}</td>
-					<td>${trainTicketOrder.transitPrice}</td>
-									 
-			<td> <a href="deleteTrainOrder/${trainTicketOrder.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a> </td>  
-			<!-- <a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>   -->	
+					<td>${trainOrder.firstname}</td>
+					<td>${trainOrder.secondname}</td>
+					<td>${trainOrder.lastname}</td>
+					<td>${trainOrder.state}</td>
+					<td>${trainOrder.city}</td>
+					<td>${trainOrder.street}</td>
+					<td>${trainOrder.email}</td>
+					<td>${trainOrder.telephone}</td>
+					<td>${trainOrder.trainTicket.transitNumber}</td>
 					
-
-
 			</c:forEach>
 			    </tbody>
  		 </table>

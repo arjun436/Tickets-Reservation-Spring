@@ -94,17 +94,14 @@
 			         <li><a href="user.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.user" /></a></li>
     		</ul>
     		&nbsp;		
-    					<ul class="nav nav-pills nav-stacked">					 
-    		
-    					        
-    					         <li><a href="usersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.usersList" /></a></li>
-    		    		</ul>
-    		    		</sec:authorize>
-    		        					<ul class="nav nav-pills nav-stacked">					 
-    		
-    					        
-    		    		    					         <li><a href="myPlaneOrders.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.myPlaneOrders" /></a></li>
-    		    		</ul>
+    		<ul class="nav nav-pills nav-stacked">					 
+    		  	     <li><a href="usersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.usersList" /></a></li>
+    		</ul>
+    		</sec:authorize>
+    		<ul class="nav nav-pills nav-stacked">					 
+	    			 <li><a href="myPlaneOrders.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.myPlaneOrders" /></a></li>
+    		  	       <li><a href="myTrainOrders.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.myTrainOrders" /></a></li>
+    		</ul>
     		    
     		    		
     		
