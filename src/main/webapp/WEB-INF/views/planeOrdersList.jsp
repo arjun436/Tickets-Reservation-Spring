@@ -102,7 +102,7 @@
     <div class="col-sm-9 text-left"> 
       <h1>List of booked plane Tickets</h1>
       
-		 <table class="table table-bordered">
+		 <table class="table table-bordered table-responsive">
 		    <thead>
 		      <tr>
 		        <th><spring:message code="label.ticket.plane.order.firstname"/></th>
@@ -115,8 +115,7 @@
 		        <th><spring:message code="label.ticket.plane.order.telephone"/>
 		        <th><spring:message code="label.ticket.plane.flightNumber"/></th>		        
 		        <th><spring:message code="label.ticket.actions"/></th>
-		        
-		        
+
 		      </tr>
 			</thead>
 

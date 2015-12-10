@@ -105,40 +105,34 @@
 		 <table class="table table-bordered">
 		    <thead>
 		      <tr>
-		        <th><spring:message code="label.ticket.plane.flightNumber"/></th>
-		        <th><spring:message code="label.ticket.plane.flightFrom"/></th>
-		        <th><spring:message code="label.ticket.plane.flightTo"/></th>
-		        <th><spring:message code="label.ticket.plane.flightDateStart"/></th>
-		        <th><spring:message code="label.ticket.plane.flightHourStart"/></th>
-		        <th><spring:message code="label.ticket.plane.flightDateStop"/></th>
-		        <th><spring:message code="label.ticket.plane.flightHourStop"/></th>
-		        <th><spring:message code="label.ticket.plane.flightPrice"/> <spring:message code="label.ticket.plane.flightPrice.currency"/></th>
-	        
-		        <th><spring:message code="label.ticket.actions"/></th>
+		        <th><spring:message code="label.ticket.plane.order.firstname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.secondname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.lastname"/></th>
+		        <th><spring:message code="label.ticket.plane.order.state"/></th>
+		        <th><spring:message code="label.ticket.plane.order.city"/></th>
+		        <th><spring:message code="label.ticket.plane.order.street"/></th>
+		        <th><spring:message code="label.ticket.plane.order.email"/></th>
+		        <th><spring:message code="label.ticket.plane.order.telephone"/>
+		        <th><spring:message code="label.ticket.plane.flightNumber"/></th>		        
 		        
 		        
 		      </tr>
 			</thead>
 
 			    			    <tbody>
-			<c:forEach items="${planeOrderList}" var="planeTicket">
+			<c:forEach items="${planeOrderList}" var="planeOrder">
 				<tr>
 					
-					<td>${planeTicket.flightNumber}</td>
-					<td>${planeTicket.flightFrom}</td>
-					<td>${planeTicket.flightTo}</td>
-					<td>${planeTicket.flightDateStart}</td>
-					<td>${planeTicket.flightHourStart}</td>
-					<td>${planeTicket.flightDateStop}</td>
-					<td>${planeTicket.flightHourStop}</td>
-					<td>${planeTicket.flightPrice}</td>
+					<td>${planeOrder.firstname}</td>
+					<td>${planeOrder.secondname}</td>
+					<td>${planeOrder.lastname}</td>
+					<td>${planeOrder.state}</td>
+					<td>${planeOrder.city}</td>
+					<td>${planeOrder.street}</td>
+					<td>${planeOrder.email}</td>
+					<td>${planeOrder.telephone}</td>
+					<td>${planeOrder.planeTicket.flightNumber}</td>
 					
-									 
-			<td> <a href="deletePlaneOrder/${planeTicketOrder.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a> </td>  
-			<!-- <a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>   -->	
-					
-
-
 			</c:forEach>
 			    </tbody>
  		 </table>

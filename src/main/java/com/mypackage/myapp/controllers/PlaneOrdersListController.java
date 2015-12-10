@@ -52,25 +52,15 @@ public class PlaneOrdersListController {
 	@RequestMapping("/myPlaneOrders")
 	public String listMyPlaneOrders(Map<String, Object> map, HttpServletRequest request) {
 
-//		int planeOrderId = ServletRequestUtils.getIntParameter(request, "planeOrderId", -1);
-//
-//		if (planeOrderId > 0)
-//			map.put("planeTicketOrder", planeTicketOrderService.getPlaneTicketOrder(planeOrderId));
-//		else
-//			map.put("planeTicketOrder", new PlaneTicketOrder());
-		
-//		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//	      Authentication auth = SecurityContextHolder.getContext().getAuthentication().getName()
-////	      User customUser = (User)auth.getPrincipal();
-//	      user.getAuthorities()
-//	      System.out.println(userId);
-//	      userService.getUser(userId);
+
 		try{
 			Integer currentUserId = userService.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
 			if(currentUserId != null){
 				User currentUser = userService.getUser(currentUserId);
 				
-				map.put("planeOrderList", currentUser.getUserPlaneTicket());
+				
+				
+				map.put("planeOrderList", currentUser.getPlaneTicketOrder());
 
 				
 			}
