@@ -78,10 +78,9 @@ public class PlaneTicketsListController {
             }
           }
 		
-        
+        //delete orders with no users
 		List<PlaneTicketOrder> planeTicketOrderList2 =  new ArrayList<PlaneTicketOrder>(planeTicketOrderService.listPlaneTicketOrder());
 
-		
         for (Iterator it3 = planeTicketOrderList2.iterator();it3.hasNext();){
         		PlaneTicketOrder planeTicketOrder2 = (PlaneTicketOrder)it3.next();
 
@@ -94,6 +93,7 @@ public class PlaneTicketsListController {
         	
         }
 
+        //delete ticket 
 		planeTicketService.removePlaneTicket(planeTicketId);
 
 

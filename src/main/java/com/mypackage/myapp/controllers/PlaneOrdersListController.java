@@ -1,6 +1,11 @@
 package com.mypackage.myapp.controllers;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.mypackage.myapp.domain.PlaneTicketOrder;
 import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.service.PlaneTicketOrderService;
 import com.mypackage.myapp.service.UserService;
@@ -44,7 +50,48 @@ public class PlaneOrdersListController {
 	}
 	@RequestMapping(value = "/deletePlaneOrder/{planeOrderId}", method = ( RequestMethod.GET))
 	public String deletePlaneOrder(@PathVariable("planeOrderId") Integer planeOrderId) {
-		planeTicketOrderService.removePlaneTicketOrder(planeOrderId);
+		
+		
+		
+		
+		
+				//delete order for users
+				List<User> usersList = userService.listUser();
+				
+		        for (Iterator it = usersList.iterator(); it.hasNext();) {
+		            User candidate = (User)it.next();
+		            System.out.println(candidate.getLogin());
+		    		List<PlaneTicketOrder> planeTicketOrderList =  new ArrayList<PlaneTicketOrder>(candidate.getPlaneTicketOrder());
+
+		    		
+		            for (Iterator it2 = planeTicketOrderList.iterator();it2.hasNext();){
+		            		PlaneTicketOrder planeTicketOrder = (PlaneTicketOrder)it2.next();
+		                    System.out.println(planeTicketOrder.getPlaneTicket().getFlightNumber());
+
+		            		if(planeTicketOrder.getId() == planeOrderId){
+		            			it2.remove();
+		            			Set<PlaneTicketOrder> set = new HashSet<PlaneTicketOrder>(planeTicketOrderList);
+		            			candidate.setPlaneTicketOrder(set);
+		            			userService.editUser(candidate);
+		            		}
+
+		            }
+		          }
+		        
+		        //deleter order
+    			planeTicketOrderService.removePlaneTicketOrder(planeOrderId);
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
 
 		return "redirect:/planeOrdersList.html";
 	}
