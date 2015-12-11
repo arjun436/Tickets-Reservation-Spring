@@ -22,101 +22,82 @@ import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.service.PlaneTicketOrderService;
 import com.mypackage.myapp.service.UserService;
 
-
 @Controller
 @SessionAttributes
 public class PlaneOrdersListController {
-	
-	
+
 	@Autowired
 	PlaneTicketOrderService planeTicketOrderService;
-	
+
 	@Autowired
 	UserService userService;
-	
+
 	@RequestMapping("/planeOrdersList")
 	public String listPlaneOrders(Map<String, Object> map, HttpServletRequest request) {
 
-//		int planeOrderId = ServletRequestUtils.getIntParameter(request, "planeOrderId", -1);
-//
-//		if (planeOrderId > 0)
-//			map.put("planeTicketOrder", planeTicketOrderService.getPlaneTicketOrder(planeOrderId));
-//		else
-//			map.put("planeTicketOrder", new PlaneTicketOrder());
+		// int planeOrderId = ServletRequestUtils.getIntParameter(request,
+		// "planeOrderId", -1);
+		//
+		// if (planeOrderId > 0)
+		// map.put("planeTicketOrder",
+		// planeTicketOrderService.getPlaneTicketOrder(planeOrderId));
+		// else
+		// map.put("planeTicketOrder", new PlaneTicketOrder());
 
 		map.put("planeOrderList", planeTicketOrderService.listPlaneTicketOrder());
 
 		return "planeOrdersList";
 	}
-	@RequestMapping(value = "/deletePlaneOrder/{planeOrderId}", method = ( RequestMethod.GET))
+
+	@RequestMapping(value = "/deletePlaneOrder/{planeOrderId}", method = (RequestMethod.GET))
 	public String deletePlaneOrder(@PathVariable("planeOrderId") Integer planeOrderId) {
-		
-		
-		
-		
-		
-				//delete order for users
-				List<User> usersList = userService.listUser();
-				
-		        for (Iterator it = usersList.iterator(); it.hasNext();) {
-		            User candidate = (User)it.next();
-		            System.out.println(candidate.getLogin());
-		    		List<PlaneTicketOrder> planeTicketOrderList =  new ArrayList<PlaneTicketOrder>(candidate.getPlaneTicketOrder());
 
-		    		
-		            for (Iterator it2 = planeTicketOrderList.iterator();it2.hasNext();){
-		            		PlaneTicketOrder planeTicketOrder = (PlaneTicketOrder)it2.next();
-		                    System.out.println(planeTicketOrder.getPlaneTicket().getFlightNumber());
+		// delete order for users
+		List<User> usersList = userService.listUser();
 
-		            		if(planeTicketOrder.getId() == planeOrderId){
-		            			it2.remove();
-		            			Set<PlaneTicketOrder> set = new HashSet<PlaneTicketOrder>(planeTicketOrderList);
-		            			candidate.setPlaneTicketOrder(set);
-		            			userService.editUser(candidate);
-		            		}
+		for (Iterator it = usersList.iterator(); it.hasNext();) {
+			User candidate = (User) it.next();
+			System.out.println(candidate.getLogin());
+			List<PlaneTicketOrder> planeTicketOrderList = new ArrayList<PlaneTicketOrder>(
+					candidate.getPlaneTicketOrder());
 
-		            }
-		          }
-		        
-		        //deleter order
-    			planeTicketOrderService.removePlaneTicketOrder(planeOrderId);
+			for (Iterator it2 = planeTicketOrderList.iterator(); it2.hasNext();) {
+				PlaneTicketOrder planeTicketOrder = (PlaneTicketOrder) it2.next();
+				System.out.println(planeTicketOrder.getPlaneTicket().getFlightNumber());
 
+				if (planeTicketOrder.getId() == planeOrderId) {
+					it2.remove();
+					Set<PlaneTicketOrder> set = new HashSet<PlaneTicketOrder>(planeTicketOrderList);
+					candidate.setPlaneTicketOrder(set);
+					userService.editUser(candidate);
+				}
 
+			}
+		}
 
-
-		
-		
-		
-		
-		
-		
-		
-		
+		// deleter order
+		planeTicketOrderService.removePlaneTicketOrder(planeOrderId);
 
 		return "redirect:/planeOrdersList.html";
 	}
-	
+
 	@RequestMapping("/myPlaneOrders")
 	public String listMyPlaneOrders(Map<String, Object> map, HttpServletRequest request) {
 
-
-		try{
-			Integer currentUserId = userService.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
-			if(currentUserId != null){
+		try {
+			Integer currentUserId = userService
+					.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+			if (currentUserId != null) {
 				User currentUser = userService.getUser(currentUserId);
-				
-				
-				
+
 				map.put("planeOrderList", currentUser.getPlaneTicketOrder());
 
-				
 			}
-		}catch(NullPointerException e){
+		} catch (NullPointerException e) {
 			System.out.println("no logged user");
-		}		
-		
+		}
 
 		return "myPlaneOrders";
 	}
-	
+
 }
