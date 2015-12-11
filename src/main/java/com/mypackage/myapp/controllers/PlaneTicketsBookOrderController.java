@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mypackage.myapp.domain.PlaneTicket;
 import com.mypackage.myapp.domain.PlaneTicketOrder;
+import com.mypackage.myapp.domain.TrainTicketOrder;
 import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.service.PlaneTicketOrderService;
 import com.mypackage.myapp.service.PlaneTicketService;
@@ -50,6 +51,25 @@ public class PlaneTicketsBookOrderController {
 
 		sessionObj.setAttribute("planeTicket", planeTicket);
 
+		
+		
+		try {
+			Integer currentUserId = userService
+					.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+			if (currentUserId != null) {
+
+				User currentUser = userService.getUser(currentUserId);
+				System.out.println(currentUser.getFirstname());
+				map.put("currentUser", currentUser);
+
+			}
+		} catch (NullPointerException e) {
+			System.out.println("no logged user");
+		}
+		
+		
+		
+		
 		map.put("planeTicketOrder", planeTicketOrder);
 
 		map.put("planeTicketOrderList", planeTicketOrderService.listPlaneTicketOrder());
