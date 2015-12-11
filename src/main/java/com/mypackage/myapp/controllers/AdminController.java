@@ -30,9 +30,9 @@ public class AdminController {
 			model.addObject("error", "Invalid username or password!");
 		}
  
-		if (logout != null) {
-			model.addObject("msg", "You've been logged out successfully.");
-		}
+//		if (logout != null) {
+//			model.addObject("msg", "You've been logged out successfully.");
+//		}
 		model.setViewName("login");
  
 		return model;

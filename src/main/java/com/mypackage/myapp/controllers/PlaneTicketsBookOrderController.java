@@ -74,11 +74,14 @@ public class PlaneTicketsBookOrderController {
 
 				User currentUser = userService.getUser(currentUserId);
 
+
+
 				Set<PlaneTicketOrder> currentUserOrders = currentUser.getPlaneTicketOrder();
 				currentUserOrders.add(planeTicketOrder);
 				currentUser.setPlaneTicketOrder(currentUserOrders);
-
 				userService.editUser(currentUser);
+				
+
 
 			}
 		} catch (NullPointerException e) {

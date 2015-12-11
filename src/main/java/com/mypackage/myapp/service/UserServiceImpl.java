@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	public void editUser(User user) {
-		user.setPassword(hashPassword(user.getPassword()));
+//		user.setPassword(hashPassword(user.getPassword())); //zmienial haslo przy edycji!!!
 		userDAO.editUser(user);
 	}
 

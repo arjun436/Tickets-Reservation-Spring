@@ -76,7 +76,7 @@ public class UserController {
 		// Name: " + user.getLastname() + " Tel.: "
 		// + user.getTelephone() + " Email: " + user.getEmail());
 
-		if (result.getErrorCount() == 0) {
+//		if (result.getErrorCount() == 0) {
 //			if (user.getId() == 0)
 //				userService.addUser(user);
 //			else
@@ -104,10 +104,10 @@ public class UserController {
 
 			return "redirect:home.html";// z tego kontrolera jestesmy
 											// przekierowani na users.html
-		}
+//		}
 
-		map.put("userList", userService.listUser());
-		return "user";
+//		map.put("userList", userService.listUser());
+//		return "user";
 	}
 
 	@RequestMapping("/deleteUser/{userId}")
