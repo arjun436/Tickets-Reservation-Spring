@@ -30,7 +30,7 @@
             </div>
     </div>  --> 
     
-     <div class="control-group ${status.error ? 'error' : '' }">
+    <div class="control-group <c:if test="${status.error}">has-error</c:if>">
         <label class="control-label" for="${path}"><spring:message code = "${label}"/><c:if test="${required}"><span class="required">*</span></c:if></label>
 			<div  class="input-group input-append clockpicker" id="${id}">
 
@@ -42,7 +42,7 @@
             </div>
             
             <c:if test="${status.error}">
-                <span class="help-inline">${status.errorMessage}</span>
+                     <span class="help-inline" style="color: #a94442" >${status.errorMessage}</span>
             </c:if>
      </div>
      
