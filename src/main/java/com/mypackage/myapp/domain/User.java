@@ -30,6 +30,8 @@ public class User {
 	private String email;
 	private String telephone;
 
+	private String country;
+
 	private String state;
 	private String city;
 	private String street;
@@ -62,6 +64,14 @@ public class User {
 
 	public void setPlaneTicketOrder(Set<PlaneTicketOrder> planeTicketOrder) {
 		this.planeTicketOrder = planeTicketOrder;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public String getLogin() {

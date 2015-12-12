@@ -23,7 +23,7 @@
             <form:input path="${path}" cssClass="${empty cssClass ? 'form-control' : cssClass}" value="${value}"/>
             
             <c:if test="${status.error}">
-                <span class="help-inline"><spring:message code = "error.field.required"/></span>
+                     <span class="help-inline">${status.errorMessage}</span>
             </c:if>
         </div>
     </div>
