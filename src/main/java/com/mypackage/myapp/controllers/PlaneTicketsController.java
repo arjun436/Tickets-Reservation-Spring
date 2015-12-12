@@ -31,7 +31,6 @@ public class PlaneTicketsController {
 	public String listPlaneTickets(Map<String, Object> map, HttpServletRequest request) {
 
 		int planeTicketId = ServletRequestUtils.getIntParameter(request, "planeTicketId", -1);
-		System.out.println(planeTicketId);
 		if (planeTicketId > 0)
 			map.put("planeTicket", planeTicketService.getPlaneTicket(planeTicketId));
 		else

@@ -23,6 +23,7 @@ import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.service.PlaneTicketOrderService;
 import com.mypackage.myapp.service.PlaneTicketService;
 import com.mypackage.myapp.service.UserService;
+import com.mypackage.myapp.validators.UserValidator;
 
 @Controller
 @SessionAttributes
@@ -37,6 +38,9 @@ public class PlaneTicketsBookOrderController {
 	@Autowired
 	UserService userService;
 
+	UserValidator userValidator = new UserValidator();
+
+	
 	@RequestMapping("/planeTicketsListBookOrder")
 	public String listPlaneTicketsBookOrder(Map<String, Object> map, HttpServletRequest request, HttpSession sessio,
 			HttpSession sessionObj) {
@@ -81,6 +85,12 @@ public class PlaneTicketsBookOrderController {
 	public String addPlaneTicketOrder(@ModelAttribute("planeTicketOrder") PlaneTicketOrder planeTicketOrder,
 			BindingResult result, HttpServletRequest request, Map<String, Object> map, HttpSession sessionObj) {// przyjmujemy
 
+		
+	
+		
+		
+		
+		
 		PlaneTicket planeTicket = (PlaneTicket) sessionObj.getAttribute("planeTicket");
 
 		planeTicketOrder.setPlaneTicket(planeTicket);

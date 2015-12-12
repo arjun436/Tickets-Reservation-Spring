@@ -111,7 +111,6 @@
 			      <t:input path="secondname" label="label.user.secondname" required="false"/> 
 			      <t:input path="lastname" label="label.user.lastname" required="true"/>
 			      <t:input path="country" label="label.user.country" required="true"/>		     
-			      
 			      <t:input path="state" label="label.user.state" required="true"/>			      
 			      <t:input path="city" label="label.user.city" required="true"/>
 			      <t:input path="street" label="label.user.street" required="true"/>

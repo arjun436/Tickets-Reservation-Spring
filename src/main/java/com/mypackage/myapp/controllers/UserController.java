@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -23,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.domain.UserRole;
 import com.mypackage.myapp.service.UserService;
-//import com.mypackage.myapp.validators.UserValidator;
+import com.mypackage.myapp.validators.UserValidator;
 
 @Controller
 @SessionAttributes
@@ -32,7 +31,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-//	UserValidator userValidator = new UserValidator();
+	UserValidator userValidator = new UserValidator();
 
 	@RequestMapping("/user")
 	public String user(Map<String, Object> map, HttpServletRequest request) {
@@ -48,66 +47,85 @@ public class UserController {
 
 		return "user";
 	}
-	
+
 	@RequestMapping("/usersList")
 	public String listOfUsers(Map<String, Object> map, HttpServletRequest request) {
 
-//		int userId = ServletRequestUtils.getIntParameter(request, "userId", -1);
-//
-//		if (userId > 0)
-//			map.put("user", userService.getUser(userId));
-//		else
-//			map.put("user", new User());
+		// int userId = ServletRequestUtils.getIntParameter(request, "userId",
+		// -1);
+		//
+		// if (userId > 0)
+		// map.put("user", userService.getUser(userId));
+		// else
+		// map.put("user", new User());
 
 		map.put("usersList", userService.listUser());
 
 		return "usersList";
 	}
 
-	@RequestMapping(value = "/addUser", method = { RequestMethod.POST, RequestMethod.GET }) // po
+	@RequestMapping(value = "/addUser", method = { RequestMethod.POST }) // po
 	// wcisnieciu
 	// add
 	// dodane RequestMethod.GET by internacjonalizacja dzialala
 	public String addUser(@ModelAttribute("user") User user, BindingResult result, HttpServletRequest request,
 			Map<String, Object> map) {// przyjmujemy
 		// uzytkownika
-//		userValidator.validate(user, result);
+		// userValidator.validate(user, result);
 		// System.out.println("First Name: " + user.getFirstname() + " Last
 		// Name: " + user.getLastname() + " Tel.: "
 		// + user.getTelephone() + " Email: " + user.getEmail());
 
-//		if (result.getErrorCount() == 0) {
-//			if (user.getId() == 0)
-//				userService.addUser(user);
-//			else
-//				userService.editUser(user);
+		// if (result.getErrorCount() == 0) {
+		// if (user.getId() == 0)
+		// userService.addUser(user);
+		// else
+		// userService.editUser(user);
+		userValidator.validate(user, result);
+
+		if (result.getErrorCount() == 0) {
+			System.out.println("lll");
+			// GET CURRENT LOGGED USER authorities
+			@SuppressWarnings("unchecked")
+			Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) SecurityContextHolder
+					.getContext().getAuthentication().getAuthorities();
+
+			if (authorities != null) {
+				for (Iterator it = authorities.iterator(); it.hasNext();) {
+					Object candidate = it.next();
+					if (candidate.toString().equals("ROLE_ADMIN")) {
+						userService.addUserAdmin(user);// ADMIN DODAJE Z
+														// UPRAWNIENIAMI ADMINA
+														// I USERA
+					} else
+						userService.addUser(user);// GOSC MOZE MIEC TYLKO
+													// UPTRAWNIENIA USERA
+				}
+			}
+
+			return "redirect:home.html";
+
+		}
+
+		return "user";
+
 		
-		//GET CURRENT LOGGED USER authorities
-	      @SuppressWarnings("unchecked")
-		Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) 
-	    		  SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-	      
-	      
-	      if (authorities != null) {
-	          for (Iterator it = authorities.iterator(); it.hasNext();) {
-	            Object candidate = it.next();
-	            if (candidate.toString().equals("ROLE_ADMIN")) {
-	            	userService.addUserAdmin(user);//ADMIN DODAJE Z UPRAWNIENIAMI ADMINA I USERA
-	            }
-	            else userService.addUser(user);//GOSC MOZE MIEC TYLKO UPTRAWNIENIA USERA
-	          }
-	        }
-	      
-	      
+		
+		
 
+		
+		
+		
+		
+		
+		
+		
+		// z tego kontrolera jestesmy
+		// przekierowani na users.html
+		// }
 
-
-			return "redirect:home.html";// z tego kontrolera jestesmy
-											// przekierowani na users.html
-//		}
-
-//		map.put("userList", userService.listUser());
-//		return "user";
+		// map.put("userList", userService.listUser());
+		// return "user";
 	}
 
 	@RequestMapping("/deleteUser/{userId}")
@@ -116,8 +134,6 @@ public class UserController {
 
 		return "redirect:/usersList.html";
 	}
-
-
 
 	@RequestMapping("/userRole")
 	public ModelAndView showUserRole() {
