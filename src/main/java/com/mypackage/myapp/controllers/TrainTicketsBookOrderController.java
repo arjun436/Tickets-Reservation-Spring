@@ -53,6 +53,25 @@ public class TrainTicketsBookOrderController {
 		
 		sessionObj.setAttribute("trainTicket" , trainTicket);
 
+		//dane usera by wyplelnic automatycznie formularz
+		try {
+			Integer currentUserId = userService
+					.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+			if (currentUserId != null) {
+
+				User currentUser = userService.getUser(currentUserId);
+				System.out.println(currentUser.getFirstname());
+				map.put("currentUser", currentUser);
+
+			}
+		} catch (NullPointerException e) {
+			System.out.println("no logged user");
+		}
+		
+		
+		
+		
+		
 		
 		map.put("trainTicketOrder", trainTicketOrder);
 

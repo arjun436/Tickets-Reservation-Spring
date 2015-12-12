@@ -105,18 +105,15 @@
 		 	<form:form method="post" class="form-horizontal" action="addPlaneTicketOrder.html" commandName="planeTicketOrder">
 			   <fieldset>
 			 	  <form:hidden path="id"/>
-			 	  		<c:if test="${not empty msg}">
-			<div class="msg">${msg}</div>
-		</c:if>
-			      <t:input path="firstname" label="label.ticket.plane.order.firstname" required="true"
-			    value="${currentUser.firstname}"   />
-			      <t:input path="secondname" label="label.ticket.plane.order.secondname" required="false"/>
-			      <t:input path="lastname" label="label.ticket.plane.order.lastname" required="true"/>
-			      <t:input path="state" label="label.ticket.plane.order.state" required="true"/>
-			      <t:input path="city" label="label.ticket.plane.order.city" required="true"/>
-			      <t:input path="street" label="label.ticket.plane.order.street" required="true"/>
-			      <t:input path="email" label="label.ticket.plane.order.email" required="true"/>
-			      <t:input path="telephone" label="label.ticket.plane.order.telephone" required="true"/>
+
+			      <t:input path="firstname" label="label.ticket.plane.order.firstname" required="true" value="${currentUser.firstname}"   />
+			      <t:input path="secondname" label="label.ticket.plane.order.secondname" required="false" value="${currentUser.secondname}"   />
+			      <t:input path="lastname" label="label.ticket.plane.order.lastname" required="true" value="${currentUser.lastname}" />
+			      <t:input path="state" label="label.ticket.plane.order.state" required="true" value="${currentUser.state}" />
+			      <t:input path="city" label="label.ticket.plane.order.city" required="true" value="${currentUser.city}" />
+			      <t:input path="street" label="label.ticket.plane.order.street" required="true" value="${currentUser.street}" />
+			      <t:input path="email" label="label.ticket.plane.order.email" required="true" value="${currentUser.email}" />
+			      <t:input path="telephone" label="label.ticket.plane.order.telephone" required="true" value="${currentUser.telephone}" />
 
 
 

@@ -52,7 +52,7 @@ public class PlaneTicketsBookOrderController {
 		sessionObj.setAttribute("planeTicket", planeTicket);
 
 		
-		
+		//dane usera by wyplelnic automatycznie formularz
 		try {
 			Integer currentUserId = userService
 					.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
