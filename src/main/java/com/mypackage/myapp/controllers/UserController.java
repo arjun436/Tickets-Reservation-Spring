@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.domain.UserRole;
 import com.mypackage.myapp.service.UserService;
+import com.mypackage.myapp.validators.UserRoleValidator;
 import com.mypackage.myapp.validators.UserValidator;
 
 @Controller
@@ -32,6 +33,7 @@ public class UserController {
 	UserService userService;
 
 	UserValidator userValidator = new UserValidator();
+	UserRoleValidator userRoleValidator = new UserRoleValidator();
 
 	@RequestMapping("/user")
 	public String user(Map<String, Object> map, HttpServletRequest request) {
@@ -135,9 +137,18 @@ public class UserController {
 	public String addUserRole(@ModelAttribute("userRole") UserRole userRole, BindingResult result,
 			HttpServletRequest request, Map<String, Object> map) {
 
+		
+		userRoleValidator.validate(userRole, result);
+
+		if (result.getErrorCount() == 0) {
+		
 		userService.addUserRole(userRole);
 
 		return "redirect:home.html";
+		
+		}
+		
+		return "userRole";
 	}
 
 }
