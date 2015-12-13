@@ -20,6 +20,7 @@ public class TrainTicketOrder {
 	private String firstname;
 	private String secondname;
 	private String lastname;
+	private String country;
 	private String state;
 	private String city;
 	private String street;
@@ -32,6 +33,14 @@ public class TrainTicketOrder {
 
 	public int getId() {
 		return id;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public void setId(int id) {

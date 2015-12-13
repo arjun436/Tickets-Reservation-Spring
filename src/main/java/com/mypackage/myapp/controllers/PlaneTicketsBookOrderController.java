@@ -18,12 +18,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mypackage.myapp.domain.PlaneTicket;
 import com.mypackage.myapp.domain.PlaneTicketOrder;
-import com.mypackage.myapp.domain.TrainTicketOrder;
 import com.mypackage.myapp.domain.User;
 import com.mypackage.myapp.service.PlaneTicketOrderService;
 import com.mypackage.myapp.service.PlaneTicketService;
 import com.mypackage.myapp.service.UserService;
-import com.mypackage.myapp.validators.UserValidator;
+import com.mypackage.myapp.validators.OrderValidator;
 
 @Controller
 @SessionAttributes
@@ -38,7 +37,7 @@ public class PlaneTicketsBookOrderController {
 	@Autowired
 	UserService userService;
 
-	UserValidator userValidator = new UserValidator();
+	OrderValidator orderValidator = new OrderValidator();
 
 	
 	@RequestMapping("/planeTicketsListBookOrder")
@@ -86,39 +85,44 @@ public class PlaneTicketsBookOrderController {
 			BindingResult result, HttpServletRequest request, Map<String, Object> map, HttpSession sessionObj) {// przyjmujemy
 
 		
-	
+		orderValidator.validate(planeTicketOrder, result);
 		
-		
-		
-		
-		PlaneTicket planeTicket = (PlaneTicket) sessionObj.getAttribute("planeTicket");
+		if (result.getErrorCount() == 0) {
+			PlaneTicket planeTicket = (PlaneTicket) sessionObj.getAttribute("planeTicket");
 
-		planeTicketOrder.setPlaneTicket(planeTicket);
+			planeTicketOrder.setPlaneTicket(planeTicket);
 
-		planeTicketOrderService.addPlaneTicketOrder(planeTicketOrder);
+			planeTicketOrderService.addPlaneTicketOrder(planeTicketOrder);
 
-		try {
-			Integer currentUserId = userService
-					.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
-			if (currentUserId != null) {
+			try {
+				Integer currentUserId = userService
+						.findByLogin(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+				if (currentUserId != null) {
 
-				User currentUser = userService.getUser(currentUserId);
+					User currentUser = userService.getUser(currentUserId);
 
 
 
-				Set<PlaneTicketOrder> currentUserOrders = currentUser.getPlaneTicketOrder();
-				currentUserOrders.add(planeTicketOrder);
-				currentUser.setPlaneTicketOrder(currentUserOrders);
-				userService.editUser(currentUser);
-				
+					Set<PlaneTicketOrder> currentUserOrders = currentUser.getPlaneTicketOrder();
+					currentUserOrders.add(planeTicketOrder);
+					currentUser.setPlaneTicketOrder(currentUserOrders);
+					userService.editUser(currentUser);
+					
 
 
+				}
+			} catch (NullPointerException e) {
+				System.out.println("no logged user");
 			}
-		} catch (NullPointerException e) {
-			System.out.println("no logged user");
+
+			return "redirect:home.html";
+		
 		}
 
-		return "redirect:http://localhost:8080/myapp/";
+		
+		return "planeTicketsListBookOrder";
+
+
 
 	}
 

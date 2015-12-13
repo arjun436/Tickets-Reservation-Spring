@@ -25,6 +25,7 @@ public class PlaneTicketOrder {
 	private String firstname;
 	private String secondname;
 	private String lastname;
+	private String country;
 	private String state;
 	private String city;
 	private String street;
@@ -38,6 +39,12 @@ public class PlaneTicketOrder {
 	private PlaneTicket planeTicket = new PlaneTicket();
 
 
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
 	public PlaneTicket getPlaneTicket() {
 		return planeTicket;
 	}

@@ -82,14 +82,13 @@ public class UserValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "email", "error.field.required");
 		// czy poprawny email
 		if (StringUtils.hasText(user.getEmail()) && emailValidator.isValid(user.getEmail()) == false) {
-			errors.rejectValue("email", "error.email.invalid");
+			errors.rejectValue("email", "error.field.invalid");
 		}
 		
 		ValidationUtils.rejectIfEmpty(errors, "telephone", "error.field.required");
 		valueToCheck = user.getTelephone().trim();
 		validateField(errors, PHONE_PATTERN, valueToCheck, "telephone", "error.field.invalid");
 		
-System.out.println(errors.getErrorCount());
 	}
 
 	private void validateField(Errors errors, String regexPattern, String valueToCheck, String field,
@@ -98,7 +97,6 @@ System.out.println(errors.getErrorCount());
 		matcher = pattern.matcher(valueToCheck);
 		if (!matcher.matches()) {
 			errors.rejectValue(field, errorMessage);
-			System.out.println(errors.getAllErrors());
 
 		}
 

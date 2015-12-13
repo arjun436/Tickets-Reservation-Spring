@@ -70,17 +70,7 @@ public class UserController {
 	// dodane RequestMethod.GET by internacjonalizacja dzialala
 	public String addUser(@ModelAttribute("user") User user, BindingResult result, HttpServletRequest request,
 			Map<String, Object> map) {// przyjmujemy
-		// uzytkownika
-		// userValidator.validate(user, result);
-		// System.out.println("First Name: " + user.getFirstname() + " Last
-		// Name: " + user.getLastname() + " Tel.: "
-		// + user.getTelephone() + " Email: " + user.getEmail());
 
-		// if (result.getErrorCount() == 0) {
-		// if (user.getId() == 0)
-		// userService.addUser(user);
-		// else
-		// userService.editUser(user);
 		userValidator.validate(user, result);
 
 		if (result.getErrorCount() == 0) {
