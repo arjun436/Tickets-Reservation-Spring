@@ -84,30 +84,22 @@
     		&nbsp;		
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Contact</h1>
+      <h1><spring:message code="label.text.contact1"/></h1>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>New bookings/General Queries</th>
-        <th>TickTwo Priority Assistance:</th>
+        <th><spring:message code="label.text.contact2"/></th>
+        <th><spring:message code="label.text.contact3"/></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>703 303 033 - Polish speaking - 2.08 PLN per minute incl. VAT. TickTwo is the service provider.
-Calls from mobiles and other networks may cost more.</td>
-        <td>703 403 363 - Polish speaking - 2,58 PLN per minute incl. VAT. TickTwo is the service provider.
-Calls from mobiles and other networks may cost more.</td>
+        <td><spring:message code="label.text.contact4"/></td>
+        <td><spring:message code="label.text.contact5"/></td>
       </tr>
       <tr>
-        <td>Our lines are open:
-Mon - Fri, 7:00 - 19:00 CET
-Sat, 09:00 - 18:00 CET
-Sun, 10:00 - 18:00 CET</td>
-        <td>Our lines are open:
-Mon - Fri, 7:00 - 19:00 CET
-Sat, 09:00 - 18:00 CET
-Sun, 10:00 - 18:00 CET</td>
+        <td><spring:message code="label.text.contact6"/></td>
+        <td><spring:message code="label.text.contact7"/></td>
       </tr>
     </tbody>
   </table>

@@ -86,21 +86,20 @@
     		&nbsp;		
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>About us</h1>
-			<p> TickTwo. You know who we are. You know what we do. You know that when you travel with TickTwo you’ll get where you want to go cheaply, reliably and without any fuss.</p>
-			<p> Our no frills, low cost model revolutionized the air travel industry and opened up Europe to the masses. And we continue to lead the way in great value travel, doing whatever it takes to guarantee that our fares are the lowest out there.</p>
-			<p> But our fares aren’t the only thing that sets us apart. We can also boast the most on-time flights of any airline in Europe, an industry leading 30-year safety record, first class punctuality, near perfect baggage handling and an innovative, cutting edge green policy.</p>
-			<p> Want the cold hard facts? Take a look at the numbers:</p>
+      <h1><spring:message code="label.text.aboutus1" /></h1>
+			<p><spring:message code="label.text.aboutus2"/></p>
+			<p><spring:message code="label.text.aboutus3" /></p>
+			<p><spring:message code="label.text.aboutus4" /></p>
+			<p><spring:message code="label.text.aboutus5" /></p>
 					<ul >			
-						<li><p> 1,600 flights daily</p></li>
-						<li><p> 185 destinations</p></li>
-						<li><p> 300 new Boeing 737-800 in operation</p></li>
-						<li><p> 283 new Boeing 737 on order</p></li>
-						<li><p> 9,500 aviation professionals employed.</p></li>
-						<li><p> 103,000,000 customers this year.</p></li>
-						<li><p> A projected 160,000,000 passengers in 2024</p></li>
+						<li><p><spring:message code="label.text.aboutus6" /></p></li>
+						<li><p><spring:message code="label.text.aboutus7" /></p></li>
+						<li><p><spring:message code="label.text.aboutus8" /></p></li>
+						<li><p><spring:message code="label.text.aboutus9" /></p></li>
+						<li><p><spring:message code="label.text.aboutus10" /></p></li>
+						<li><p><spring:message code="label.text.aboutus11" /></p></li>
 					</ul>
-			<p>But let’s face it, at the end of the day, the only number that really matters is the fare price and one thing’s for certain, TickTwo’s will always be the lowest out there.</p>
+			<p><spring:message code="label.text.aboutus12" /></p>
 			
 		
 			
