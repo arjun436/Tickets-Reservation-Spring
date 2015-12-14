@@ -123,7 +123,7 @@
     		</sec:authorize>		
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Define new train ticket</h1>
+      <h1><spring:message code="label.title.trainTickets"/></h1>
       
 			<form:form method="post" class="form-horizontal" action="addTrainTicket.html" commandName="trainTicket">
 			   <fieldset>

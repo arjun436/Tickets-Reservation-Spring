@@ -121,7 +121,7 @@
     		</sec:authorize>		
     </div>
     <div class="col-sm-9 text-left "> 
-      <h1>List of plane Tickets</h1>
+      <h1><spring:message code="label.title.planeTicketsList"/></h1>
       
 		 <table class="table table-bordered">
 		    <thead>
@@ -153,8 +153,8 @@
 					<td>${planeTicket.flightPrice}</td>
 					
 									 
-					<td> <a href="deletePlaneTicket/${planeTicket.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a>	
-					<a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>
+					<td> <a href="deletePlaneTicket/${planeTicket.id}.html" class="btn btn-info btn-xs" role="button"><spring:message code="label.button.delete"/></a>	
+					<a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button"><spring:message code="label.button.edit"/></a></td>
 					
 
 

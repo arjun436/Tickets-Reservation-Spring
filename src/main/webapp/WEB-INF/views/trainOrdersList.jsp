@@ -121,7 +121,7 @@
     		</sec:authorize>	
     </div>
     <div class="col-sm-9 text-left"> 
-      <h1>List of booked train Tickets</h1>
+      <h1><spring:message code="label.title.trainOrdersList"/></h1>
       
 		 <table class="table table-bordered">
 		    <thead>
@@ -156,7 +156,7 @@
 					<td>${trainTicketOrder.trainTicket.transitNumber}</td>
 					
 									 
-			<td> <a href="deleteTrainOrder/${trainTicketOrder.id}.html" class="btn btn-info btn-xs" role="button">DELETE</a> </td>
+			<td> <a href="deleteTrainOrder/${trainTicketOrder.id}.html" class="btn btn-info btn-xs" role="button"><spring:message code="label.button.delete"/></a> </td>
 				<!--<a href="planeTickets.html?planeTicketId=${planeTicket.id}" class="btn btn-info btn-xs" role="button">EDIT</a></td>  -->		
 					
 

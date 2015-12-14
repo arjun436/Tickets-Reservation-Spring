@@ -121,7 +121,7 @@
     		</sec:authorize>		
     </div>
     <div class="col-sm-9 text-left"> 
-      <h1>Book plane Tickets - order form</h1>
+      <h1><spring:message code="label.title.trainTicketsListBook"/></h1>
       
 		 	<form:form method="post" class="form-horizontal" action="addTrainTicketOrder.html" commandName="trainTicketOrder">
 			   <fieldset>

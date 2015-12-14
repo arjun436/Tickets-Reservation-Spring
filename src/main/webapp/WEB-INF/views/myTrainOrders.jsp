@@ -121,7 +121,7 @@
     		</sec:authorize>	
     </div>
     <div class="col-sm-9 text-left"> 
-      <h1>List of my booked plane Tickets</h1>
+      <h1><spring:message code="label.title.myTrainOrders"/></h1>
       
 		 <table class="table table-bordered">
 		    <thead>

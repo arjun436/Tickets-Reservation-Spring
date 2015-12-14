@@ -121,7 +121,7 @@
     		</sec:authorize>	
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Define new plane ticket</h1>
+      <h1><spring:message code="label.title.planeTickets"/></h1>
       
 			<form:form method="post" class="form-horizontal" action="addPlaneTicket.html" commandName="planeTicket">
 			   <fieldset>

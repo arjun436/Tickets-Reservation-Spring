@@ -121,7 +121,7 @@
     		</sec:authorize>		
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Define new user</h1>
+      <h1><spring:message code="label.title.user"/></h1>
       
 			<form:form method="post" class="form-horizontal" action="addUser.html" commandName="user">
 			   <fieldset>
