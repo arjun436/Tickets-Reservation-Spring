@@ -88,13 +88,20 @@ public class UserController {
 				for (Iterator it = authorities.iterator(); it.hasNext();) {
 					Object candidate = it.next();
 					if (candidate.toString().equals("ROLE_ADMIN")) {
+						
+						System.out.println(user.getCity());
 						userService.addUserAdmin(user);// ADMIN DODAJE Z
 														// UPRAWNIENIAMI ADMINA
 														// I USERA
-						System.out.println("ss");
-					} else
+						System.out.println("xxx");
+					} 
+					if (candidate.toString().equals("ROLE_ANONYMOUS")) {
+						
 						userService.addUser(user);// GOSC MOZE MIEC TYLKO
-													// UPTRAWNIENIA USERA
+						// UPTRAWNIENIA USERA
+						System.out.println("yyy");
+					}
+
 				}
 			}
 
