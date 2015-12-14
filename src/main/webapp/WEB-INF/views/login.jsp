@@ -190,7 +190,9 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="label.navbar.login2"/></button>  
       		  <input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" /> 
-			<c:if test="${error != null }"></c:if>	<h4>${error}</h4>
+					<c:if test="${not empty error}">
+			<div class="error"><spring:message code="label.login.error"/></div>
+		</c:if>
 			</form>
 
   </div>
@@ -204,7 +206,7 @@
 </div>
 
 <footer class="container-fluid text-center">
-  <p><spring:message code="footer" /></p>
+  <p><spring:message code="footer"/></p>
 </footer>
 
 
