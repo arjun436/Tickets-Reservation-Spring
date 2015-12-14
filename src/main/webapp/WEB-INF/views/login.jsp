@@ -183,11 +183,11 @@
       
  <div class="wrapper">
     <form class="form-signin"  name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>       
-      <h2 class="form-signin-heading">Please login</h2>
+      <h2 class="form-signin-heading"><spring:message code="label.user.login"/></h2>
       <input type="text" class="form-control" name="login" placeholder=" <spring:message code="label.user.login" />" required="" autofocus="" />
       <input type="password" class="form-control" name="password" placeholder=" <spring:message code="label.user.password" />" required=""/>      
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>  
+      <button class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="label.navbar.login2"/></button>  
       		  <input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" /> 
 			<c:if test="${error != null }"></c:if>	<h4>${error}</h4>

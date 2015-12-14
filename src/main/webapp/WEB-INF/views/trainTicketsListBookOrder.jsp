@@ -226,7 +226,7 @@
 
     
     
-    
+   /* 
         $('form').submit(function (e) {
             var form = this;
             e.preventDefault();
@@ -234,7 +234,7 @@
                 form.submit();
             }, 3000); // in milliseconds
             $("<p>Thank you! Order completed! Please check your email.</p>").appendTo("h4");
-        });
+        });*/
       //login logout
 		function formSubmit() {
 			document.getElementById("logoutForm").submit();
