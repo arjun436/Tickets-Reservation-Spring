@@ -5,7 +5,7 @@
 
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title><spring:message code="label.title.about" /></title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="<c:url value="/resources/bootstrap-3.3.6-dist/css/bootstrap.min.css" />" rel="stylesheet">
