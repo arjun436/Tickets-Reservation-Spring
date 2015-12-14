@@ -61,6 +61,8 @@
       	<c:if test="${pageContext.request.userPrincipal.name != null}">
         <li><a href="javascript:formSubmit()"><span class="glyphicon glyphicon-log-out"></span> <spring:message code="label.navbar.logout" /></a></li>
       	</c:if> 
+      	      	<li><a href="?lang=pl"><span class="glyphicon glyphicon-flag"></span> <spring:message code="label.navbar.pl" /></a></li>
+        <li><a href="?lang=en"><span class="glyphicon glyphicon-flag"></span> <spring:message code="label.navbar.en" /></a></li>
       </ul>
       	<form action="${logoutUrl}" method="post" id="logoutForm">
 		  <input type="hidden" 
