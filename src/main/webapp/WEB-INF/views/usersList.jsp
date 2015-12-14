@@ -127,12 +127,7 @@
 		        <th><spring:message code="label.user.login"/></th>
 		        <th><spring:message code="label.user.role"/></th>
 		        <th><spring:message code="label.user.firstname"/></th>
-		        <th><spring:message code="label.user.secondname"/></th>
 		        <th><spring:message code="label.user.lastname"/></th>
-		        <th><spring:message code="label.user.country"/></th>		        
-		        <th><spring:message code="label.user.state"/></th>
-		        <th><spring:message code="label.user.city"/></th>
-		        <th><spring:message code="label.user.street"/>
 		        <th><spring:message code="label.user.email"/></th>
 		        <th><spring:message code="label.user.telephone"/></th>
 		        
@@ -149,12 +144,7 @@
 					
 					
 					<td>${user.firstname}</td>
-					<td>${user.secondname}</td>
 					<td>${user.lastname}</td>
-					<td>${user.country}</td>					
-					<td>${user.state}</td>
-					<td>${user.city}</td>
-					<td>${user.street}</td>
 					<td>${user.email}</td>
 					<td>${user.telephone}</td>
 					
