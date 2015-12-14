@@ -4,6 +4,7 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags/" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html lang="en">
 <head>
@@ -73,21 +74,27 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
+    	  	<sec:authorize access="hasAnyRole('ROLE_ADMIN')">    
   			<ul class="nav nav-pills nav-stacked">
 					 <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
 					 <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /> </a></li>
 			</ul>
 		    &nbsp;
+		    
 		    <ul class="nav nav-pills nav-stacked">			   			
 					 <li><a href="planeTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsList" /></a></li>
 					  <li><a href="trainTicketsList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsList" /></a></li>
 			</ul>
 			&nbsp;
+		 	</sec:authorize>
+			
 			<ul class="nav nav-pills nav-stacked">					 
 					 <li><a href="planeTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeTicketsListBook" /></a></li>
 				     <li><a href="trainTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsListBook" /></a></li>
 			</ul>
 			&nbsp;
+			 <sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+			
 			<ul class="nav nav-pills nav-stacked">		
 					 <li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
 					 <li><a href="trainOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainOrdersList" /></a></li>
@@ -98,6 +105,18 @@
 			         <li><a href="user.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.user" /></a></li>
     		</ul>
     		&nbsp;		
+    		<ul class="nav nav-pills nav-stacked">					 
+    		  	     <li><a href="usersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.usersList" /></a></li>
+    		</ul>
+    		</sec:authorize>
+    		    		&nbsp;		
+    		
+    		<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">    		
+    		<ul class="nav nav-pills nav-stacked">					 
+	    			 <li><a href="myPlaneOrders.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.myPlaneOrders" /></a></li>
+    		  	     <li><a href="myTrainOrders.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.myTrainOrders" /></a></li>
+    		</ul>
+    		</sec:authorize>		
     </div>
     <div class="col-sm-9 text-left"> 
       <h1>Book plane Tickets</h1>

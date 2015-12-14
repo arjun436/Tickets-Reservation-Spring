@@ -39,6 +39,9 @@ public class UserController {
 	public String user(Map<String, Object> map, HttpServletRequest request) {
 
 		int userId = ServletRequestUtils.getIntParameter(request, "userId", -1);
+		
+		
+
 
 		if (userId > 0)
 			map.put("user", userService.getUser(userId));
@@ -76,7 +79,6 @@ public class UserController {
 		userValidator.validate(user, result);
 
 		if (result.getErrorCount() == 0) {
-			System.out.println("lll");
 			// GET CURRENT LOGGED USER authorities
 			@SuppressWarnings("unchecked")
 			Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) SecurityContextHolder
@@ -89,6 +91,7 @@ public class UserController {
 						userService.addUserAdmin(user);// ADMIN DODAJE Z
 														// UPRAWNIENIAMI ADMINA
 														// I USERA
+						System.out.println("ss");
 					} else
 						userService.addUser(user);// GOSC MOZE MIEC TYLKO
 													// UPTRAWNIENIA USERA

@@ -62,8 +62,7 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-    	  	<sec:authorize access="hasRole('ROLE_ADMIN')">
-    
+    	  	<sec:authorize access="hasAnyRole('ROLE_ADMIN')">    
   			<ul class="nav nav-pills nav-stacked">
 					 <li><a href="planeTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addPlane" /></a></li>
 					 <li><a href="trainTickets.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.addTrain" /> </a></li>
@@ -82,7 +81,7 @@
 				     <li><a href="trainTicketsListBook.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.trainTicketsListBook" /></a></li>
 			</ul>
 			&nbsp;
-			 <sec:authorize access="hasRole('ROLE_ADMIN')">
+			 <sec:authorize access="hasAnyRole('ROLE_ADMIN')">
 			
 			<ul class="nav nav-pills nav-stacked">		
 					 <li><a href="planeOrdersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.planeOrdersList" /></a></li>
@@ -98,13 +97,14 @@
     		  	     <li><a href="usersList.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.usersList" /></a></li>
     		</ul>
     		</sec:authorize>
+    		    		&nbsp;		
+    		
+    		<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">    		
     		<ul class="nav nav-pills nav-stacked">					 
 	    			 <li><a href="myPlaneOrders.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.myPlaneOrders" /></a></li>
-    		  	       <li><a href="myTrainOrders.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.myTrainOrders" /></a></li>
+    		  	     <li><a href="myTrainOrders.html"><span class="glyphicon glyphicon-chevron-right"></span> <spring:message code="label.sidenav.myTrainOrders" /></a></li>
     		</ul>
-    		    
-    		    		
-    		
+    		</sec:authorize>
     </div>
     <div class="col-sm-8 text-left"> 
       <h1><spring:message code="label.text.home1"/></h1>
