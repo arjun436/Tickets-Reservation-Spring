@@ -46,7 +46,10 @@ public class OrderValidator implements Validator {
 		validateField(errors, NAME_PATTERN, valueToCheck, "firstname", "error.field.invalid");
 
 		valueToCheck = planeTicketOrder.getSecondname().trim();
-		validateField(errors, NAME_PATTERN, valueToCheck, "secondname", "error.field.invalid");
+		if(valueToCheck.indexOf('a')>=0){
+			validateField(errors, NAME_PATTERN, valueToCheck, "secondname", "error.field.invalid");
+
+		}
 
 		ValidationUtils.rejectIfEmpty(errors, "lastname", "error.field.required");
 		valueToCheck = planeTicketOrder.getLastname().trim();
