@@ -91,9 +91,11 @@ public class OrderValidator implements Validator {
 		valueToCheck = trainTicketOrder.getFirstname().trim();
 		validateField(errors, NAME_PATTERN, valueToCheck, "firstname", "error.field.invalid");
 
-		ValidationUtils.rejectIfEmpty(errors, "secondname", "error.field.required");
 		valueToCheck = trainTicketOrder.getSecondname().trim();
-		validateField(errors, NAME_PATTERN, valueToCheck, "secondname", "error.field.invalid");
+		if(valueToCheck.indexOf('a')>=0){
+			validateField(errors, NAME_PATTERN, valueToCheck, "secondname", "error.field.invalid");
+
+		}
 
 		ValidationUtils.rejectIfEmpty(errors, "lastname", "error.field.required");
 		valueToCheck = trainTicketOrder.getLastname().trim();
