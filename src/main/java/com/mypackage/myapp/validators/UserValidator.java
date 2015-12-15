@@ -54,7 +54,6 @@ public class UserValidator implements Validator {
 		valueToCheck = user.getFirstname().trim();
 		validateField(errors, NAME_PATTERN, valueToCheck, "firstname", "error.field.invalid");
 
-		ValidationUtils.rejectIfEmpty(errors, "secondname", "error.field.required");
 		valueToCheck = user.getSecondname().trim();
 		validateField(errors, NAME_PATTERN, valueToCheck, "secondname", "error.field.invalid");
 
