@@ -132,6 +132,8 @@
 		        <th><spring:message code="label.user.lastname"/></th>
 		        <th><spring:message code="label.user.email"/></th>
 		        <th><spring:message code="label.user.telephone"/></th>
+		        <th><spring:message code="label.ticket.actions"/></th>
+		        
 		        
 		      </tr>
 			</thead>
