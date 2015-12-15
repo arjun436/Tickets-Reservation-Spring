@@ -126,7 +126,7 @@
 			<form:form method="post" class="form-horizontal" action="addUser.html" commandName="user">
 			   <fieldset>
 			 	  <form:hidden path="id"/>
-			      <t:input path="login" label="label.user.login2" required="true"/>
+			      <t:input path="login" label="label.user.login" required="true"/>
 			      <t:input path="password" label="label.user.password" required="true"/>
 			      <t:input path="firstname" label="label.user.firstname" required="true"/>
 			      <t:input path="secondname" label="label.user.secondname" required="false"/> 
