@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Transactional
 	public void addUser(User user) {
-		user.getUserRole().add(userDAO.findRoleByName("ROLE_USER"));
+		user.getUserRole().add(userDAO.findRoleByName("ROLE_USER"));//change to ROLE_ADMIN to sign up first admin
 
 		user.setPassword(hashPassword(user.getPassword()));
 		userDAO.addUser(user);
@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	public void editUser(User user) {
-//		user.setPassword(hashPassword(user.getPassword())); //zmienial haslo przy edycji!!!
 		userDAO.editUser(user);
 	}
 
